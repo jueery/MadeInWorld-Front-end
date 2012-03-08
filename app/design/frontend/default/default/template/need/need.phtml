@@ -1,0 +1,30 @@
+<form id="needform" method="post" action="<?php echo $this->getUrl()?>/liquan/index/create">
+<div class="title">马上申请</div>
+<span>感谢您提交您的公益需求，我们将在2个工作日与您取得联系！</span>
+<div id="loggoss_lxbg">
+<ul>
+<li> 
+<dl> 
+<dd><label>联系人</label><input class="lxr_text required-entry" type="text" name="name" /></dd> 
+<dd><label>邮件</label><input class="yj_text required-entry validate-email" type="text" name="email" /></dd> 
+</dl> 
+</li>
+<li> 
+<dl> 
+<dd><label>联系电话</label><input class="tel_text required-entry" type="text" name="telephone" /></dd> 
+<dd><label>地址</label><input class="dz_text required-entry" type="text" name="address" /></dd> 
+</dl> 
+</li>
+<li><label>机构名称</label><input class="jgmc_text required-entry" type="text" name="institutions" /></li>
+<li><label>公益救助对象</label><textarea id="yx_comment" class="required-entry"  name="toname"></textarea></li>
+<li><label>公益计划概述</label><textarea id="yx_comment" class="required-entry"  name="description"></textarea></li>
+<button id="send1" name="send" title="确认" class="button" type="submit"><img src="<?php echo $this->getUrl('media')?>__06_1_.gif" alt="" /></button>
+<button id="send2" name="send" title="取消" class="button" type="submit"><img src="<?php echo $this->getUrl('media')?>__08.gif" alt="" /></button>
+</ul>
+</div>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('needform', true);
+    //]]>
+    </script>

@@ -1,0 +1,34 @@
+ <?php if ($this->getOrderId()):?>   
+ <?php 
+ $incrementid = $this->getOrderId();
+ $order = Mage::getModel('sales/order')->loadByIncrementId($incrementid);
+ $total = $order->getData('base_grand_total'); 
+ $shipping = $order->getData('base_shipping_amount');
+ 
+ ?>  
+        _gaq.push(['_addTrans',     
+                   '<?php echo  $incrementid;?>',           // order ID - required     
+                   '',  // affiliation or store name     
+                   '<?php echo $total; ?>',          // total - required     
+                   '<?php echo $shipping; ?>',           // tax     
+                   '',              // shipping     
+                   '',       // city     
+                   '',     // state or province     
+                   ''             // country   
+                   ]);
+                        // add item might be called for every item in the shopping cart
+                            // where your ecommerce engine loops through each item in the cart and
+                                // prints out _addItem for each  
+<?php foreach($order->getAllItems() as $items): ?>
+       _gaq.push(['_addItem',     
+                  '<?php echo  $incrementid;?>',           // order ID - required     
+                  '<?php echo $items->getData('sku'); ?>',           // SKU/code - required     
+                  '<?php echo $items->getData('name');?>',        // product name     
+                  '',   // category or variation     
+                  '<?php echo $items->getData('price'); ?>',          // unit price - required     
+                  '<?php echo $items->getData('qty_ordered'); ?>'               // quantity - required   
+                  ]); 
+                  
+<?php endforeach; ?> 
+      _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers  
+      <?php endif;?>

@@ -1,0 +1,360 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:`
+ * http://opensource.org/licenses/afl-3.0.phn
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct();
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>    
+        <div class="shop_details">  
+        <div class="product-shop">
+            <div class="product-name">
+              <?php echo $_helper->productAttribute($_product, $_product->getName(),'name') ?>&nbsp;<?php echo $_helper->productAttribute($_product, $_product->getEnglishName(), 'english_name') ?>
+            </div>
+
+
+           
+            <?php //echo $this->getChildHtml('alert_urls') ?>
+            <?php echo $this->getChildHtml('product_type_data') ?>
+                                       
+            <div class="lsj_why">
+              <div class="lsj">
+              <?php if($_product->getMarketprice()):?>
+              <p>
+              <span class="price-label">市场价：</span>
+              <span class="price"><?php echo Mage::helper('core')->currency($_product->getMarketprice())?></span>
+              </p>
+               <?php endif; ?>
+              <?php echo $this->getPriceHtml($_product) ?>
+              </div> 
+            </div>   
+            
+            <div class="hyj">
+            <span>希望会员价：<?php echo Mage::helper('core')->currency($_product->getPrice()*0.98)?></span>&nbsp;&nbsp;
+            <span>心愿会员价：<?php echo Mage::helper('core')->currency($_product->getPrice()*0.95)?></span>&nbsp;&nbsp;
+            <span>心诚会员价：<?php echo Mage::helper('core')->currency($_product->getPrice()*0.9)?></span>
+            </div>           
+            
+            <?php //echo $this->getChildHtml('extrahint') ?>
+            <div class="sc_hp"><p class="ysc"> 已售出 <span><?php echo (int)$_product->getSales(); ?></span> 瓶</p>
+            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?></div>
+
+            <?php if (!$this->hasOptions()):?>
+          <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                    <?php endif; ?>
+                    
+                <span class="scbx"><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>">收藏备选&nbsp;<span>+</span></a></span>
+          
+          <div class="wine_details">
+            <ul>
+            <li class="sku">                 
+              商品编号：<?php echo $_product->getSku()?>                                       
+            </li>
+            <li class="dj">等&nbsp;&nbsp;级：<?php echo $_product->getData('level'); ?></li>
+            <li class="cd">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地：<?php echo $_product->getAttributeText('guojia'); ?></li>
+            <li class="nf">年&nbsp;&nbsp;份：<?php echo $_product->getAttributeText('cankaonianfen'); ?>年</li>
+            <li class="ptzl"> 葡萄种类：<?php echo $_helper->productAttribute($_product, nl2br($_product->getGrapeVarieties()), 'grape_varieties') ?></li>
+            </ul>
+          </div>
+            <?php if($_product->isSaleable()): ?> 
+            <div class="lijigoumai">
+              <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+            </div>
+            <?php endif; ?>    
+              
+          </div>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php else:?>
+                <?php echo $this->getChildHtml('addto') ?>
+            <?php endif; ?>
+            
+
+            <?php echo $this->getChildHtml('other');?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+            
+            
+   
+            
+            <div class="service"><img alt="" src="<?php echo $this->getSkinUrl('images/img.jpg')?>" /></div>
+            
+
+            
+            <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('catalog/product/view/fenxiang.phtml')->toHtml() ?>
+
+        </div>
+
+        <div class="product-img-box">
+            <?php echo $this->getChildHtml('media') ?>     
+        </div>
+
+        <div class="clearer"></div>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(button){
+                if (this.validator.validate()) {
+                    this.form.submit();
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }
+            }.bind(productAddToCartForm);
+    //]]>
+    </script>
+    </div>  
+</div> 
+      <div class="cxhd"><img alt="" src="<?php echo $this->getSkinUrl('images/cx1.jpg')?>" /></div>
+      <div class="bz">
+        <ul>
+          <li><a href="#"><img alt="" src="<?php echo $this->getSkinUrl('images/xfzbz.jpg')?>" /></a></li> 
+          <li class="zpbz"><a href="#"><img alt="" src="<?php echo $this->getSkinUrl('images/zpbz.jpg')?>" /></a></li>
+          <li><a href="#"><img alt="" src="<?php echo $this->getSkinUrl('images/yzjk.jpg')?>" /></a></li>
+        </ul>
+      </div>
+      <div class="product-collateral">   
+        <div id="testtab" class="art_works_list">    
+          <div style="position: relative;" id="tabtag" class="product_title">
+            <ul>
+              <li><span>商品介绍</span></li>
+              <li><span><a href="#pzbz">品质保证</a></span></li>
+              <li><span><a href="#wlfh">仓储物流</a></span></li>
+              <li><span><a href="#customer-reviews">商品评价</a></span></li>  
+              <li><span><a href="#zx_form">商品咨询</a></span></li>
+            </ul>
+          </div>
+
+          <div class="new-wrapper">
+              <?php echo $this->getChildHtml('additional') ?> 
+              <?php echo $_helper->productAttribute($_product,$_product->getDescription(), 'description') ?>
+              <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('pjbz')->toHtml();?>
+
+               <!-- 酒庄介绍/葡萄品种 {{{ -->
+
+               <?php $multiSelectArray = $this->getProduct()->getAttributeText('grape');?>
+                 
+                <?php if($multiSelectArray):?>
+                <div class="new-block mt10">
+                 <div class="new-block-top pl20 bk880c0c fs20">
+                   酒庄介绍/葡萄品种
+                 </div>  
+                 <?php 
+                   if($multiSelectArray && count($multiSelectArray)==1){
+                        $cmsblocks = Mage::getModel('cms/block')->getCollection()
+                       ->addFilter('title',$multiSelectArray)
+                       ->getFirstItem();
+                    echo $this->getLayout()->createBlock('cms/block')->setBlockId($cmsblocks->getData('identifier'))->toHtml();   
+                      
+                   }else{
+                     foreach($multiSelectArray as $multiSelectItem){
+                   
+                    $cmsblocks = Mage::getModel('cms/block')->getCollection()
+                       ->addFilter('title',$multiSelectItem)
+                       ->getFirstItem();
+                    echo $this->getLayout()->createBlock('cms/block')->setBlockId($cmsblocks->getData('identifier'))->toHtml();    
+                  
+                  }
+                 }
+                 ?>
+             </div>
+             <?php endif;?>
+            <!-- }}} -->
+            <!-- 西班牙红酒 {{{ -->
+                  <?php // echo $_product->getAttributeText('guojia');?>
+            <?php 
+                  if($_product->getAttributeText('guojia')=="西班牙")
+                    echo $this->getLayout()->createBlock('cms/block')->setBlockId('xbyhj')->toHtml();
+            ?>
+            <!-- }}} -->
+             <!-- 资质证明 {{{ -->
+             <?php echo $_helper->productAttribute($_product,$_product->getZizhi(), 'zizhi') ?>
+             <!-- }}} -->
+             <!-- 红酒等级 {{{ -->
+             <?php 
+                  $cmsblocks = Mage::getModel('cms/block')->getCollection()
+                       ->addFilter('title',$_product->getAttributeText('guojia'))
+                       ->getFirstItem();
+                  echo $this->getLayout()->createBlock('cms/block')->setBlockId($cmsblocks->getData('identifier'))->toHtml();      
+             // echo $_product->getAttributeText('guojia');
+              
+             ?>
+            <!-- }}} -->
+            <!-- 品质保证 {{{ -->
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('pzbz')->toHtml();?>            
+            <!-- }}} -->      
+            <!-- 团队服务 {{{ -->
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('fwtd')->toHtml();?>
+            <!-- }}} -->
+            <!-- 物流发货 {{{ -->
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('wlfh')->toHtml();?>
+            <!-- }}} -->
+            <!-- 品酒知识 {{{ -->
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('pjzs')->toHtml();?>
+            <!-- }}} -->
+            <!-- 常见问题 {{{ -->
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('cjwt')->toHtml();?>
+            <!-- }}} -->
+            <!-- 立即购买 {{{ -->
+            <div class="new-block mt10 buy-now-btn-row tac">
+	      <input type="button" id="id" value=""  onclick="productAddToCartForm.submit(this)"  />
+            </div>
+            <!-- }}} -->
+          </div>
+        </div>
+       </div>
+    
+
+        <?php //echo $this->getChildHtml('upsell_products') ?>
+        <?php //echo $this->getChildHtml('product_additional_data') ?>
+        
+        <script>
+            jQuery(document).ready(function(){
+                jQuery('.qbpl').text('全部评论(' + jQuery("#hiddenresult div.pl").length + ')');
+                jQuery('.qbhp').text('好评(' + jQuery("#hiddenresult_hp div.hp").length + ')');
+                jQuery('.qbzp').text('中评(' + jQuery("#hiddenresult_zp div.zp").length + ')');
+                jQuery('.qbcp').text('差评(' + jQuery("#hiddenresult_cp div.cp").length + ')');
+            })
+     		</script> 
+        <div id="testtab2">    
+            <div style="position: relative;" id="tabtag2" class="product_title">
+                <ul>
+                    <li><span class="qbpl"></span></li>
+                    <li><span class="qbhp"></span></li>
+                    <li><span class="qbzp"></span></li>
+                    <li><span class="qbcp"></span></li>  
+                </ul>
+            </div>
+            <div id="tabcon2">
+                <div class="tabcon">
+                    <?php echo $this->getChildHtml('product_review') ?>   
+                </div>
+                <div class="tabcon" style="display:none">
+                    <?php echo $this->getChildHtml('product_praisereview') ?>   
+                </div>
+                <div class="tabcon" style="display:none">
+                    <?php echo $this->getChildHtml('product_assessmentview') ?>   
+                </div>
+                <div class="tabcon" style="display:none">
+                    <?php echo $this->getChildHtml('product_poorview') ?>
+                </div>   
+            </div> 
+            <?php echo $this->getChildHtml('review_form') ?>
+        </div>
+        <script>
+            jQuery(document).ready(function(){
+              jQuery("#testtab2").tab({
+            tabId:"#tabtag2", 
+            tabTag:"li",        
+            conId:"#tabcon2",   
+            act:"click",
+            conTag:".tabcon"
+              })
+            })
+     		</script> 
+        
+
+        <div class="productquestions-container" id="zx_form">
+            <script type="text/javascript" language="javascript">
+                //<!CDATA[
+                function g(o){return document.getElementById(o);}
+                function HoverLi(n){
+                //如果有N个标签,就将i<=N;
+                //本功能非常OK,兼容IE7,FF,IE6
+                	for(var i=1;i<=5;i++)
+                	{
+                		g('tab_'+i).className='tm2';
+                		g('tb_0'+i).style.display='none';
+                	}
+                	g('tb_0'+n).style.display='block';
+                	g('tab_'+n).className='tm1';
+                }
+                </script>
+            <div class="product_tab">
+                <div class="product_title">
+                    <ul>  
+                      <li onClick="x:HoverLi(1);" id="tab_1" class="tm1">全部购买咨询</li>
+                      <li onClick="x:HoverLi(2);" id="tab_2" class="tm2">商品咨询</li>
+                      <li onClick="x:HoverLi(3);" id="tab_3" class="tm3">库存配送</li>
+                      <li onClick="x:HoverLi(4);" id="tab_4" class="tm4">支付</li> 
+                      <li onClick="x:HoverLi(5);" id="tab_5" class="tm5">常见问题</li>
+                    </ul>
+                </div>
+        
+                <div class="product_details">
+                    <div id="tb_01" style="display: block;">
+                        <?php echo $this->getChildHtml('productquestions') ?>
+                    </div>
+                    <div style="display: none;" id="tb_02">
+                        <?php echo $this->getChildHtml('productconsulting') ?>
+                    </div>
+                    <div style="display: none;" id="tb_03">
+                        <?php echo $this->getChildHtml('inventorydistribution') ?>
+                    </div>
+                    <div style="display: none;" id="tb_04">
+                        <?php echo $this->getChildHtml('pay') ?>
+                    </div> 
+                    <div style="display: none;" id="tb_05">
+                        <?php echo $this->getChildHtml('frequently') ?>
+                    </div>
+                </div>
+            </div>
+            <?php echo $this->getChildHtml('productquestions_form') ?>
+        </div>
+        <script type="text/javascript">
+        jQuery(document).ready(function(){
+        	jQuery('li:nth-child(odd)').addClass('odd');
+        	jQuery('li:nth-child(even)').addClass('even');
+        	jQuery('.productquestions-container ul li.record').addClass(function() {
+        	return 'item_' + jQuery(this).index();
+        });
+        });
+        </script> 
+    </div>

@@ -1,0 +1,44 @@
+          <!-- 产品列表 {{{ -->
+          <div class="mt20 new-links new-hj-list">
+            <!-- switch tab {{{ -->
+            <ul class="switch-tabs new-links-tabs">
+              <li class="lf current">
+                精品推荐
+                <span>|</span>
+              </li> 
+              <li class="lf">
+                新品上市
+                <span>|</span>
+              </li> 
+              <li class="lf">
+                推荐礼酒
+                <span>|</span>
+              </li> 
+              <li class="lf">
+                品牌推荐
+              </li> 
+            </ul>
+            <!-- }}} -->
+            <ul class="switch-blocks new-links-blocks">
+              <!-- 精品推荐{{{ -->
+              <li class="current">
+                  <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('18')->toHtml() ?>
+              </li> 
+              <!-- }}} -->
+              <!-- 新品上市 {{{ -->
+              <li class="new-links-two">
+                新品上市
+              </li>
+              <!-- }}} -->
+              <!-- 推荐礼酒 {{{ -->
+              <li class="new-links-two new-links-three">
+                推荐礼酒
+              </li>
+              <!-- }}} -->
+              <!-- 品牌推荐 {{{ -->
+              <li class="new-links-two new-links-four">
+                品牌推荐
+              </li>
+              <!-- }}} -->
+            </ul>
+          </div>

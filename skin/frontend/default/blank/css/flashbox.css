@@ -1,0 +1,96 @@
+/* flashbox {{{ */
+.flashbox-tuan,
+.hezuohb,
+.flashbox-cen {
+  width: 800px;
+  padding: 25px 100px 150px 100px;
+  background: #ebebeb;
+}
+.flashbox-cen-top {
+  background: url('../images/flashbox/flashbox-line-bg.jpg') no-repeat;
+}
+.flashbox-cen-top span.lf {
+  color: #730301;
+  font-size: 24px;
+  line-height: 40px;
+}
+.flashbox-cen-top span.rt {
+  color: #730301;
+  margin-right: 5px;
+  padding-top: 14px;
+}
+.cs-title {
+  display: none;
+}
+/* }}} */
+/* login {{{ */
+.member-login-01 {
+  height: 274px;
+  background: url('../images/login/login-bg-01.jpg') no-repeat 2px 0;
+}
+.member-login-01 {
+  padding-left: 340px;
+  padding-top: 115px;
+}
+.member-login-01-text,
+.member-login-02-text {
+  height: 20px;
+  line-height: 20px;
+  width: 292px;
+}
+.member-login-01 button.khyz_btn {
+    background: url("../images/login/khyz.jpg") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 35px !important;
+    width: 86px;
+}
+.member-login-02 {
+  height: 337px;
+  padding: 40px;
+  background: url('../images/login/login-bg-02.jpg') no-repeat center 0;
+}
+.member-login-02-top span.lf {
+  padding-left: 50px;
+}
+.member-login-02-band {
+  float: left;
+  padding: 0 8px;
+  margin-right: 27px;
+}
+.member-login-02-msg {
+  float: left;
+  padding: 0px 24px;
+}
+.member-login-02 table td {
+  padding-top: 15px;
+}
+.member-login-02 form {
+  display: block;
+  padding-left: 160px;
+  margin-top: 15px;
+}
+.member-login-02-box {
+  margin-top: 2px;
+  *margin-top: -2px;
+}
+.member-login-02 .tjzc_btn {
+  width: 115px;
+  height: 43px;
+  margin-top: 15px;
+  background: url('../images/login/tjzc.jpg') no-repeat;
+}
+.member-login-03 {
+  height: 305px;
+  padding: 40px;
+  background: url('../images/login/login-bg-03.jpg') no-repeat center 0;
+}
+.member-login-03 form {
+  padding-left: 250px;
+}
+.member-login-03 button.bd_btn {
+  width: 114px;
+  height: 41px;
+  margin-top: 15px;
+  background: url('../images/login/bd.jpg') no-repeat;
+}
+/* }}} */

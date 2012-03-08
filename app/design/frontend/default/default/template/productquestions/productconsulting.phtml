@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Productquestions
+ * @copyright  Copyright (c) 2008-2010 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+
+$questions = $this->getQuestionCollection(1);
+
+?>
+
+<?php if($questions->getSize()): ?>
+    <ul>
+    <?php foreach($questions->getItems() as $q): ?>
+        <a name="<?php echo $q->getId() ?>"> </a>
+        <li class="record">
+            <ul>
+                <li class="question"><span class="r_details"><span>网友： <?php echo $q->getQuestionAuthorName() ?></span>  <span class="date"><?php echo $this->formatDate($q->getQuestionDate(), 'medium') ?> <?php echo $this->formatTime($q->getQuestionDate()) ?></span></span>咨询内容：<?php echo nl2br(htmlentities($q->getQuestionText(), null, 'UTF-8')) ?></li>
+                <li class="reply">美德因我服务：<em><?php echo AW_Productquestions_Helper_Data::parseURLsIntoLinks($q->getQuestionReplyText()) ?></em></li>
+            </ul>
+        </li>
+    <?php endforeach; ?> 
+    </ul>
+<?php else: ?>
+    <p><?php echo $this->__('No questions asked yet'); ?></p>
+<?php endif; ?>  

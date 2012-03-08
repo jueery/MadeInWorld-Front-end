@@ -1,0 +1,67 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="footer-container">  
+    <div class="life"> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('shenghuopinzhi')->toHtml() ?>     
+        <div class="warn"> <img src="<?php echo $this->getSkinUrl('images/warn.gif') ?>" alt="" />&nbsp;&nbsp;&nbsp;购买前请确认达到法定饮酒年龄！美德因我不销售任何含酒精产品给18岁以下人士!</div>
+  
+        <div class="dingyu">
+            <?php echo $this->getChildHtml('top.search.footer') ?>
+            <?php echo $this->getChildHtml('left.newsletter') ?>
+        </div>
+    </div>
+    <div class="footp_pic"><img src="<?php echo $this->getSkinUrl('images/footbg_img.gif') ?>" alt="" /></div>  
+    <div class="customer">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tel_weblink')->toHtml() ?>
+    </div>  
+    
+</div>    
+<div class="footp_top"><img id="toTop" style="cursor: pointer;" src="<?php echo $this->getSkinUrl('images/topbnt.gif') ?>" alt="" /></div>
+  <div style="display:none"> 
+
+</div> 
+<script type="text/javascript">
+      
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26361802-1']);
+  _gaq.push(['_trackPageview']);
+  
+    <?php if(strpos(Mage::helper('core/url')->getCurrentUrl(),'checkout/onepage/success') !== false ){?>
+        <?php echo $this->getChildHtml('google.analytics.track') ?>
+    <?php }?>
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+<div style="display:none;">  
+<script  type="text/javascript"  src="http://kf.5251.net/js/icon_version_2.jsp?companyId=42222&style=85686&keyword=1&locate=cn"></script> 
+</div>
+      

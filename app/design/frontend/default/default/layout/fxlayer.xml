@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <catalog_category_layered>			
+		<reference name="content">
+			<block type="fxlayer/layer" before="-" template="fxlayer/fxlayer.phtml">
+			</block>
+		</reference> 
+    </catalog_category_layered>
+
+</layout>

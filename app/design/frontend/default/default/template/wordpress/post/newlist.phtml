@@ -1,0 +1,82 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php
+//$posts = $this->wordpresshomelist();
+//print_r($posts->getData());
+
+ ?>
+  <?php //print_r($this->wordpresshomelist()->addCategoryAndPostIdFilter(null,3)->getData()); ?>
+ <div class="newhot"><h2>
+      <img src="<?php echo $this->getUrl().'media/what_new.gif';?>" alt="" /></h2>
+     <?php if ($posts = $this->wordpresshomelist()): ?>   
+     <?php $i=0; foreach ($posts as $post): ?>  
+                       <?php 
+     $i++; 
+     if ($i > 2){
+         break;
+     } ?>
+    <?php $description = $this->description($post->getId()); ?> 
+    <div class="miaoshu"><a href="<?php echo $post->getPermalink(); ?>/"><h2><?php echo $post->getPostTitle(); ?></h2></a>
+    <?php foreach($description->getData() as $descrip): ?>
+      <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>&hellip;&hellip;
+      </p>
+      <?php endforeach; ?>
+    </div>
+     <?php endforeach; ?>
+    <?php endif; ?>
+    <div class="newhot_bottom">
+      <ul>
+        <li>
+        <img src="<?php echo $this->getUrl().'media/newlist_pic.gif';?>" alt="" />
+        </li>
+      </ul>
+      <ul class="newlist">
+        <li>
+          
+          <?php if ($posts = $this->wordpresshomelist()->addCategoryAndPostIdFilter(null,14)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?> 
+          <a href="<?php echo $post->getPermalink(); ?>/"><span>[红酒减肥]
+          </span><?php echo $post->getPostTitle(); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+        <li>
+
+        <?php if ($posts = $this->wordpresshomelist()->addCategoryAndPostIdFilter(null,17)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getPermalink(); ?>/"><span>[红酒美容]
+          </span><?php echo $post->getPostTitle(); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+        <li>
+   
+        <?php if ($posts = $this->wordpresshomelist()->addCategoryAndPostIdFilter(null,10)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getPermalink(); ?>/"> <span>[红酒浪漫] 
+          </span><?php echo $post->getPostTitle(); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+        <li>
+    
+        <?php if ($posts = $this->wordpresshomelist()->addCategoryAndPostIdFilter(null,12)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getPermalink(); ?>/"><span>[红酒禁忌] 
+          </span><?php echo $post->getPostTitle(); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+      </ul>
+    </div>
+  </div>

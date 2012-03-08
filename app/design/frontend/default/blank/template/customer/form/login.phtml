@@ -1,0 +1,111 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see Mage_Customer_Block_Form_Login
+ */
+?>  
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="account-login">
+            <div class="col-1 new-users">
+                 <div class="content">
+                       <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('login')->toHtml() ?>
+                      <?php echo $this->getChildHtml('customer_loginform_register') ?>
+                </div>
+                
+            
+            </div>
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+        <div class="col2-set">
+
+            <div class="col-2 registered-users">
+                <div class="content">
+                    <p class="red"><?php echo $this->__('如果已经注册，请从这里登录') ?></p>
+                    <ul class="form-list">
+                        <li>
+                            <label for="email" class="required"><?php echo '登录名：' ?></label>
+                            <div class="input-box">
+                                <em>*</em><input type="text" name="login[username]" value="Email/手机号" onclick="if(this.value == 'Email/手机号'){this.value = '';}" id="email" class="input-text required-entry " title="<?php echo $this->__('Email Address') ?>" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="pass" class="required"><?php echo $this->__('Password') ?>：</label>
+                            <div class="input-box">
+                                <em>*</em><input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+                            </div>
+                        </li>
+                    </ul>          
+                
+                    <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-right" style="padding-right:10px; color:#880B0B"><?php echo $this->__('Forgot Your Password?') ?></a>  
+                </div>
+                
+                
+            <div class="col-2 registered-users">
+                <div class="buttons-set">
+                    <button type="submit" class="button submit_btn" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                </div>
+            </div>
+            
+            <div class="dl_zl">
+              <ul>
+                <li><a href="<?php echo $this->getUrl('alipayfastlogin/index/login') ?>"><img src="<?php echo $this->getSkinUrl('images/zfb.gif') ?>" alt="" /></a></li> 
+                <li class="wbdl"><a href="<?php echo $this->getUrl('weibologin/index/login') ?>"><img src="<?php echo $this->getSkinUrl('images/wbdl.gif') ?>" alt="" /></a></li> 
+               
+                <li><a href="<?php echo $this->getUrl('qlogin/index/login');?>"><img src="<?php echo $this->getSkinUrl('images/qq.gif') ?>" alt="" /></a></li> 
+                
+              </ul>
+            </div>
+            
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('login-form', true);
+    //]]>
+    </script>      
+</div>
+
+<script type="text/javascript">
+        //<![CDATA[
+
+            jQuery(function($){
+              var search_input= $("#email:input");
+                if(search_input.val()=="")
+                  search_input.val("Email/手机号").css({'color':'#ccc'});
+                  search_input.focus(function(){
+                      $(this).select().css({'color':'#000'});
+                  }).blur(function(){
+                      if(search_input.val()==""){
+                         search_input.val("Email/手机号").css({'color':'#898888'});
+                      }
+                  });
+              })
+        //]]>
+        </script> 

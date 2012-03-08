@@ -1,0 +1,22 @@
+<div class="rmfl_title">
+<img alt="" src="<?php echo $this->getSkinUrl('images/rmfl_title.gif')?>" />
+</div>
+<dl id="narrow-by-list">    
+  <?php foreach($this->getLayerAttributes() as $key=>$value):?>
+    <div class="fl_line">       
+      <dt class="even"><?php echo $value?>:</dt>
+      <dd class="even">
+        <ol>
+          <?php foreach($this->getAttributeOptions($key) as $option):?>
+          <li><?php //echo $this->isActive('tanziguige',$option['value'])?>
+                <a <?php if($this->isActive($key,$option['value'])){?>style="background-color: red;"<?php }?> href="<?php echo $this->getLayerUrl($key,$option['value']);?>"><?php echo $option['label']?></a></li>
+          <?php endforeach; ?>
+        </ol>
+      </dd>
+    </div>
+ <?php endforeach; ?>                                                                                                                                                                           </dl>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  jQuery('#narrow-by-list .fl_line:last').addClass('last')
+});
+</script>

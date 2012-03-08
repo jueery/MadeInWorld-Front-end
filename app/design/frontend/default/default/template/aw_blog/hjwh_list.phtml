@@ -1,0 +1,50 @@
+<?php if ($posts = $this->getCatPosts(3)): ?>                                                                
+<div class="test_content"><h1><span>红酒文化</span>
+    <img src="<?php echo $this->getUrl().'media/WineCulture_title.gif';?>" alt="红酒文化" /></h1>
+  <div class="t_con">
+    <div class="tc_left">
+    <?php $i=0; foreach ($posts as $post): ?>
+         <?php 
+     $i++; 
+     if ($i > 2){
+         break;
+     } ?> 
+      <ul>
+        <li>
+        <img src="<?php echo $this->getUrl().'media/zx_pic'.($i+3).'.gif';?>" alt="" />
+        </li>
+        <li class="desc">
+          <h6><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?>
+          </h6>
+          <p><?php echo mb_substr($post->getPostContent(), 0, 48, 'utf-8'); ?>&hellip;&hellip;
+            <a href="<?php echo $post->getAddress(); ?>">[详细]</a>
+          </p>
+        </li>
+      </ul>
+      <?php endforeach; ?>
+
+    </div>
+    <div class="tc_right">
+      <ul>
+      <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+          if ($i <= 2){
+         continue;;
+     }
+     if ($i > 9){
+         break;
+     } ?> 
+        <li>
+        <a href="<?php echo $post->getAddress(); ?>">
+          <span <?php if($i==3){?>class="upper"<?php }?>><?php echo $i-2;?>
+          </span><?php echo mb_substr($post->getTitle(), 0, 20, 'utf-8'); ?></a>
+        </li>
+         <?php endforeach; ?>
+
+        
+      </ul>
+    </div>
+  </div>
+</div>
+<?php endif; ?>

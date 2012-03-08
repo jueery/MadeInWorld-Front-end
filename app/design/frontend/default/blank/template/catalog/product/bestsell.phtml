@@ -1,0 +1,45 @@
+<?php
+/**
+ * @author Branko Ajzele | http://activecodeline.com | branko.ajzele@surgeworks.com
+ * @license GPL
+ */
+$totalPerPage = ($this->show_total) ? $this->show_total : 3;
+$counter = 1;
+$visibility = array(
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+                  );
+$storeId = Mage::app()->getStore()->getId();   
+$_productCollection = Mage::getModel('catalog/product')->getCollection()
+                              ->addAttributeToSelect('*')
+                             // ->addOrderedQty()
+                              ->addAttributeToFilter('visibility', $visibility)
+                              ->addUrlRewrite()
+                            //  ->addCategoryFilter($_featcategory)   //全部产品的排行
+                              ->setOrder('sales', 'desc')
+                              ->setCurPage(1);   
+$_helper = $this->helper('catalog/output');
+$currentproduct = Mage::registry('current_product');
+$guojia = $_helper->productAttribute($currentproduct, nl2br($currentproduct->getGuojia()), 'guojia');
+?>
+<div class="origin">
+<h5>同产地热销</h5>
+<div class="best">
+  <ul>
+    <?php foreach($_productCollection as $product): ?>
+    <?php if ($_helper->productAttribute($product, nl2br($product->getGuojia()), 'guojia') == $guojia && $product->getId() <> $currentproduct->getId()): ?>
+    <?php if($counter <= $totalPerPage): ?>
+    <?php $productUrl =  $product->getProductUrl() ?>
+    <li class="l">
+      <a class="hotimg" href="<?php echo $productUrl ?>" title="View <?php echo $product->name ?>"> 
+        <img src="<?php echo $this->getSkinUrl('images/blank.gif') ?>" original="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(100,126); ?>" alt="
+        <?php echo $product->name ?>"  /> </a>
+        <span class="product-name"><a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($product->getName()) ?>"><?php echo $this->htmlEscape($product->getName()) ?></a></span>
+        <?php echo Mage::helper('core')->currency($product->getFinalPrice()) ?>
+    </li>
+    <?php endif; $counter++; ?>
+    <?php endif; ?>
+    <?php endforeach; ?>
+  </ul>
+</div>
+</div>

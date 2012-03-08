@@ -1,0 +1,46 @@
+
+
+
+<?php /*?>
+<div id="tb_" class="tb_">
+<ul>
+<?php for ($i = 1; $i <= 5; $i++):?>
+<li id="<?php echo 'tb_'.$i?>" <?php if($i==1){?> class="hovertab" <?php }else{?>class="normaltab" <?php }?> onmousemove="x:HoverLi(<?php echo $i?>);"> <a href="#"><?php echo Mage::getStoreConfig('advertising/home/TITLE'.$i);?></a></li>
+<?php endfor;?>
+
+</ul>
+</div>
+<div class="ctt">
+<?php for ($i = 1; $i <= 5; $i++):?>
+<div id="<?php echo 'tbc_0'.$i?>" <?php if($i==1){?> class="dis" <?php }else{?> class="undis" <?php }?> ><a href="<?php echo Mage::getStoreConfig('advertising/home/URL'.$i);?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/product/tab/'.Mage::getStoreConfig('advertising/home/File'.$i);?>" alt="" /></a></div>
+<?php endfor;?>
+
+</div>
+<script type="text/javascript">// <![CDATA[
+function g(o){
+return document.getElementById(o);
+}
+function HoverLi(n){
+for(var i=1;i<=5;i++){g('tb_'+i).className='normaltab';g('tbc_0'+i).className='undis';}g('tbc_0'+n).className='dis';g('tb_'+n).className='hovertab';
+}
+// ]]></script>
+<?php */?>
+<!--以上为调用范例 -->
+
+<script type="text/javascript">// <![CDATA[
+        jQuery(document).ready(function(){
+            jQuery('#flashbox2').smallslider();
+        });
+// ]]></script>
+<div id="flashbox2" class="smallslider">
+<ul>
+<?php for ($i = 1; $i <= 4; $i++):?>
+<li><a target="_blank" href="<?php echo Mage::getStoreConfig('advertising/home/URL'.$i);?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/product/tab/'.Mage::getStoreConfig('advertising/home/File'.$i);?>" alt="<?php echo Mage::getStoreConfig('advertising/home/TITLE'.$i);?>" /></a></li>
+<?php endfor;?>
+
+
+</ul>
+</div>
+
+
+

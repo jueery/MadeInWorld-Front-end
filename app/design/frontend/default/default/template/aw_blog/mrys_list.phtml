@@ -1,0 +1,65 @@
+<div class="newhot"><h2>
+      <img src="<?php echo $this->getUrl().'media/what_new.gif';?>" alt="" /></h2>
+     <?php if ($posts = $this->getCatPosts()): ?>   
+     <?php $i=0; foreach ($posts as $post): ?>  
+                       <?php 
+     $i++; 
+     if ($i > 2){
+         break;
+     } ?> 
+    <div class="miaoshu"><h2><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?></h2>
+      <p><?php echo mb_substr($post->getPostContent(), 0, 52, 'utf-8'); ?>&hellip;&hellip;
+      </p>
+    </div>
+     <?php endforeach; ?>
+    <?php endif; ?>
+    <div class="newhot_bottom">
+      <ul>
+        <li>
+        <img src="<?php echo $this->getUrl().'media/newlist_pic.gif';?>" alt="" />
+        </li>
+      </ul>
+      <ul class="newlist">
+        <li>
+    
+          <?php if ($posts = $this->getCatPosts(10)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getAddress(); ?>"><span>[红酒保健]
+          </span><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+        <li>
+
+                    <?php if ($posts = $this->getCatPosts(9)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getAddress(); ?>"><span>[红酒美容]
+          </span><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+        <li>
+   
+                              <?php if ($posts = $this->getCatPosts(17)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getAddress(); ?>"> <span>[美容塑身] 
+          </span><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+        <li>
+    
+                <?php if ($posts = $this->getCatPosts(11)): ?> 
+          <?php $i=0; foreach ($posts as $post): ?>  
+          <a href="<?php echo $post->getAddress(); ?>"><span>[食色酒香] 
+          </span><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?></a>
+          <?php break;?>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </li>
+      </ul>
+    </div>
+  </div>

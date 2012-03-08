@@ -1,0 +1,171 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+?>
+<div class="cart">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php echo $this->getChildHtml('form_before') ?>
+    <div class="step_title"><img alt="" src="<?php echo $this->getSkinUrl('images/step1.gif')?>"></div>
+    <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+        <fieldset>
+            <table id="shopping-cart-table" class="data-table cart-table">
+                <col width="1" />
+                <col width="1" />
+            <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+                <col width="1" />
+            <?php endif ?>
+            <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                <col width="1" />
+            <?php endif; ?>
+            <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                <col width="1" />
+            <?php endif; ?>
+                <col width="1" />
+            <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                <col width="1" />
+            <?php endif; ?>
+            <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                <col width="1" />
+            <?php endif; ?>
+                <col width="1" />
+
+            <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>    
+                <thead> 
+                  <div class="gwc">  
+                    <ul>
+                        <li width="165" rowspan="<?php echo $mergedCells; ?>">删除</li>
+                        <li width="165" rowspan="<?php echo $mergedCells; ?>">图片</li>
+                        <li width="165" rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product Name') ?></span></li>
+                        <li width="165" class="a-center" colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Unit Price') ?></span></li>
+                        <li width="165" rowspan="<?php echo $mergedCells; ?>" class="a-center"><?php echo $this->__('Qty') ?></li>
+                        <li width="165" class="a-center" colspan="<?php echo $mergedCells; ?>"><?php echo $this->__('Subtotal') ?></li>
+                    </ul>
+                    <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                    <ul>
+                        <li width="165" class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></li>
+                        <li width="165"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></li>
+                        <li width="165" class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></li>
+                        <li width="165"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></li>
+                    </ul>
+                    <?php endif; ?> 
+                    </div> 
+                </thead>  
+                <tfoot>    
+                    <tr>
+                        <td colspan="50" class="a-right">
+                            <?php if($this->getContinueShoppingUrl()): ?>
+                                <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+                            <?php endif; ?>
+                            <button type="submit" title="<?php echo $this->__('Update Shopping Cart') ?>" class="button btn-update"><span><span><?php echo $this->__('Update Shopping Cart') ?></span></span></button>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                  <tr style="background-color:#fff">
+                    <td style="height:10px;padding:0px;border-bottom:0px solid #cacaca" class="kd">&nbsp;</td> 
+                    <td style="height:10px;padding:0px;border-bottom:0px solid #cacaca"" class="kd">&nbsp;</td>
+                    <td style="height:10px;padding:0px;border-bottom:0px solid #cacaca"" class="kd">&nbsp;</td>
+                    <td style="height:10px;padding:0px;border-bottom:0px solid #cacaca"" class="kd">&nbsp;</td>
+                    <td style="height:10px;padding:0px;border-bottom:0px solid #cacaca"" class="kd">&nbsp;</td>
+                    <td style="height:10px;padding:0px;border-bottom:0px solid #cacaca"" class="kd">&nbsp;</td>
+                  </tr>
+                <?php foreach($this->getItems() as $_item): ?>
+                    <?php echo $this->getItemHtml($_item) ?>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+            
+        </fieldset>
+    </form>
+    <div class="cart-collaterals">
+        <div class="col2-set">
+            <div class="col-1">
+                <?php echo $this->getChildHtml('crosssell') ?>
+            </div>
+            <div class="col-2">
+                <?php echo $this->getChildHtml('coupon') ?>
+                <?php if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
+            </div>
+        </div>
+        <div class="totals">
+            <?php echo $this->getChildHtml('totals'); ?>
+            <?php if(!$this->hasError()): ?>
+            <ul class="checkout-types">
+            <?php foreach ($this->getMethods('methods') as $method): ?>
+                <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                <li><?php echo $methodHtml; ?></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+
+<script type="text/javascript" language="javascript">
+//<!CDATA[
+function g(o){return document.getElementById(o);}
+function HoverLi(n){
+//如果有N个标签,就将i<=N;
+//本功能非常OK,兼容IE7,FF,IE6
+	for(var i=1;i<=3;i++)
+	{
+		g('tbl_'+i).className='tm2';
+		g('tab_0'+i).style.display='none';
+	}
+	g('tab_0'+n).style.display='block';
+	g('tbl_'+n).className='tm1';
+}
+</script>
+    <div class="cart-giftbox">
+      <div class="tab">
+      <div class="tab_title"> 
+      <span>可挑选的礼盒：</span>
+        <ul>
+          <li onMouseover="x:HoverLi(1);" id="tbl_1" class="tm1">单盒</li>
+          <li onMouseover="x:HoverLi(2);" id="tbl_2" class="tm2">双盒</li>
+          <li onMouseover="x:HoverLi(3);" id="tbl_3" class="tm3">多盒</li>
+        </ul>
+      </div>
+      <div class="tab_list">
+        <div id="tab_01" style="display: block;">
+           <?php echo $this->getChildHtml('giftboxlist1'); ?>
+        </div>
+        <div style="display: none;" id="tab_02">
+          <?php echo $this->getChildHtml('giftboxlist2'); ?>
+        </div>
+        <div style="display: none;" id="tab_03">
+         <?php echo $this->getChildHtml('giftboxlist3'); ?>
+        </div>
+      </div>
+      </div>
+    </div>
+</div>

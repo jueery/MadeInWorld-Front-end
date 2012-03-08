@@ -1,0 +1,86 @@
+                                                                                    
+<?php if (Mage::getStoreConfig('rob/rob/enabled')) :?>
+<?php //echo Mage::getStoreConfig('rob/rob/ID');?>
+
+
+ <?php
+ date_default_timezone_set('PRC');
+ ?>
+
+ <?php 
+ $product = Mage::getModel('catalog/product')->load(Mage::getStoreConfig('rob/rob/ID'));
+ //echo $product->getSpecialToDate();           结束时间
+ //echo $product->getSpecialFromDate(); //      开始时间
+ ?>
+
+ <div class="miaosha" style="background:url(<?php echo '../media/homepage/'.Mage::getStoreConfig('rob/rob/image')?>) no-repeat;"><a href="<?php echo $product->getProductUrl() ?>">
+<div class="kaiyedafangsong"> 
+<h2><?php echo mb_substr($product->getName(),0,12,'utf-8');?></h2>
+<div class="scj">市场价：￥<?php echo (int)$product->getMarketprice();?></div>
+<div class="msj"><img src="<?php echo  $this->getUrl().'media/msj.jpg';?>" alt="" /><span><?php echo (int)$product->getFinalprice();?></span></div>
+<div class="time">&nbsp;&nbsp; 剩余时间<br /><div id="time" class="time">...</div></div>
+ </div> 
+</a></div>
+
+
+
+    
+
+
+<script type="text/javascript">
+     var limitend = setInterval("Showlimittime('<?php echo $product->getSpecialToDate() ?>','.kaiyedafangsong','time','limitend')",2000);           
+</script>
+
+
+
+
+<script type="text/javascript"> 
+<!-- 
+function Showlimittime(startTime,id,divid,clearin){
+//alert(startTime);
+	var strArr = startTime.split(" ");
+	var strDay = strArr[0].split("-");
+  //alert(strDay);
+	var strTime = strArr[1].split(":");
+  
+	var yy = strDay [0];
+	var mm = strDay [1];
+	var dd = strDay [2];
+	var hh = strTime[0];
+	var mi = strTime[1];
+	var se = strTime[2];
+  
+	var date1 = new Date(); 
+	var date2 = new Date(Date.UTC(yy, mm-1, dd, hh-8, mi, se));
+	 //alert(date1);
+  // alert(date2);
+	var Tsecond = (date2.getTime()-date1.getTime())/1000;
+  //alert(Tsecond); 
+	var Tminite = ((date2.getTime()-date1.getTime())/1000)/60;
+	
+	//if(Tsecond<0) {jQuery(id).remove();clearInterval(clearin);}
+	if(Tsecond<0){
+    document.getElementById(divid).innerHTML=("已结束");
+  }else
+  {
+    var leftAHour = parseInt(Tminite/60);
+  	var leftHour = parseInt(leftAHour%24);
+  	var leftDay  = parseInt(leftAHour/24);                         
+  	var leftMinite = parseInt((Tminite % 60));               
+  	var leftSecond = parseInt(Tsecond%60);	
+  	document.getElementById(divid).innerHTML=(""+leftDay+"<span class=\"font-text\">天</span>"
+    +formateTime(leftHour)+'<span class="font-text">时</span>'+formateTime(leftMinite)+'<span class="font-text">分</span>'+formateTime(leftSecond)+'<span class="font-text">秒</span>');
+
+  }
+}
+function formateTime(timepa){
+  var newstr = new String(timepa);
+  if(newstr.length<2) return '0'+timepa;
+  return timepa;
+}
+//-->
+</script>   
+    <script type="text/javascript">decorateGeneric($$('.grid-row'), ['last', 'odd', 'even']);</script>
+<?php endif?>
+<!--以上为调用范例 -->
+

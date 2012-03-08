@@ -1,0 +1,55 @@
+<?php if ($posts = $this->getCatPosts(11)): ?> 
+  <div class="ysbj_content"><h1>
+      <span>食色酒香
+      </span>
+      <img src="<?php echo $this->getUrl().'media/ssjx_title.gif';?>" alt="" /></h1>
+    <div class="ys_con">  
+      <div class="ssjx_left">
+         <?php $i=0; foreach ($posts as $post): ?>
+                  <?php 
+     $i++; 
+     if ($i > 2){
+         break;
+     } ?> 
+        <div class="R_top">
+          <ul>
+            <li> 
+            <img src="<?php echo $this->getUrl().'media/ssjx_pic'.$i.'.gif';?>" alt="" /> 
+            </li>
+            <li class="desc">
+              <a href="<?php echo $post->getAddress(); ?>"><h5><?php echo mb_substr($post->getTitle(), 0, 12, 'utf-8'); ?></h5></a>
+              <p><?php echo mb_substr($post->getPostContent(), 0, 42, 'utf-8'); ?>&hellip;&hellip;
+              </p>
+            </li>
+          </ul>
+        </div>
+         <?php endforeach; ?>
+
+      </div>
+      <div class="ssjx_left">
+            <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+          if ($i <= 2){
+         continue;;
+     }
+     if ($i > 4){
+         break;
+     } ?> 
+        <div class="R_top">
+          <ul>
+            <li> 
+            <img src="<?php echo $this->getUrl().'media/ssjx_pic'.$i.'.gif';?>" alt="" /> 
+            </li>
+            <li class="desc">
+              <a href="<?php echo $post->getAddress(); ?>"><h5><?php echo mb_substr($post->getTitle(), 0, 12, 'utf-8'); ?></h5></a>
+              <p><?php echo mb_substr($post->getPostContent(), 0, 42, 'utf-8'); ?>&hellip;&hellip;
+              </p>
+            </li>
+          </ul>
+        </div>
+         <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>

@@ -1,0 +1,118 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */           
+?>
+
+ 
+
+<?php
+//$test = Mage::getResourceModel('wordpress/postmeta_collection')->addPostIdFilter(69,null);
+//print_r($test->getData());
+
+?>
+
+<div class="topmenu">
+    <ul>
+        
+        <li class="nobg tel">服务热线：<span><i>400-601-5199</i></span></li>
+    </ul>
+    
+
+    <ul class="r_top">  
+        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()):?>                         
+<?php if(Mage::getSingleton('core/cookie')->get('nickname')): ?>
+          <li><a href="<?php echo $this->getBaseUrl() ?>customer/account">您好<?php echo Mage::getSingleton('core/cookie')->get('nickname') ?>，欢迎光临美德因我！
+</a></li>                
+          <li><a rel="nofollow" href="<?php echo $this->getUrl('customer/account/logout');?>">[<span>退出</span>]</a></li>
+        <?php else:?>                         
+          <li><a href="<?php echo $this->getBaseUrl() ?>customer/account"><?php echo $this->getWelcome()?></a></li>                
+          <li><a rel="nofollow" href="<?php echo $this->getUrl('customer/account/logout');?>">[<span>退出</span>]</a></li>
+        <?php endif; ?>                        
+    <?php else:?>  
+        <li class="nobg">您好，欢迎光临美德因我！</li>                     
+        <li class="login"><a rel="nofollow" href="<?php echo $this->getBaseUrl() ?>customer/account/login">[<span>登录</span></a></li>
+		    <li class="signup"><a rel="nofollow" href="<?php echo $this->getBaseUrl() ?>customer/account/create"><span>注册</span>]</a></li>                                  
+    <?php endif;?> 
+        <li><a rel="nofollow" href="#">[<span>会员卡专属通道</span>]</a></li>
+        <li><a rel="nofollow" href="<?php echo $this->getBaseUrl() ?>customer/account">我的账户</a></li>
+        
+        <li class="weibo"><a target="_blank" href="http://weibo.com/madeinworld">关注微博</a></li> 
+        <li class="bzzx"><a href="<?php echo $this->getBaseUrl() ?>help_6.html">帮助中心</a></li>
+        <li class="zxkf"><a onclick="open_pic_chat()" href="#">在线客服</a></li>
+    </ul>
+</div>
+<div class="header-container">
+  <div class="header">
+    <?php if ($this->getIsHomePage()):?>
+    <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>  
+    <?php else:?>
+    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+    <?php endif?>
+    <div class="search">
+      <div class="search_form">
+          <?php echo $this->getChildHtml('topSearch') ?>
+      </div>
+      <div class="search_words">
+          <?php echo $this->getChildHtml('hotSearch') ?>
+      </div>
+      <?php 
+          $_cartQty= Mage::getSingleton('checkout/cart')->getSummaryQty();
+          if(!$_cartQty){
+              $_cartQty = 0;
+          }
+      ?> 
+    </div>
+  <?php echo $this->getChildHtml('topContainer'); ?> 
+  </div>
+</div>
+
+<div class="topmenu_cart">  
+    <div class="topcart" id="minicart">
+       <p class="yourcart"><a class="gouwuche" href="<?php echo $this->getUrl('checkout/cart');?>"><span>购物车
+          <span>
+          <?php echo $_cartQty; ?>
+          </span>件
+        </span></a>  | <?php echo Mage::helper('core')->currency(Mage::helper ( 'checkout/cart') ->getQuote()->getSubtotal());?> 元      </p>
+        <?php echo $this->getChildHtml('cart_sidebar_mini') ?>
+    </div>
+    
+<script type="text/javascript">
+  jQuery(function(){ 
+    jQuery(this).children(".widget-static-block").css('display','block');
+    jQuery("#nav li").hover(function(){
+      jQuery(this).children(".widget-static-block").show();
+    },function(){
+      jQuery(this).children(".widget-static-block").hide();
+    })
+  })
+</script>
+    
+    <?php //echo $this->getChildHtml('topMenu') ?>    
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('static-menu')->toHtml(); ?>
+</div>
+

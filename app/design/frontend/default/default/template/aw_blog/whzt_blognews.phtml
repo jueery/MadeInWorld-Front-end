@@ -1,0 +1,19 @@
+
+<?php $blog_id = $this->getBlogId(); ?>
+<?php $posts = $this->getCatPosts($blog_id) ?>  
+<div class="col_leftnews">
+  <ul class="blog_mainnews">
+      <?php $i = 1; foreach ($posts as $post): ?>
+              <?php  if($i<10):?>
+              <li>
+                  <a href="<?php echo $post->getAddress(); ?>" ><span class="num_<?php echo $i; ?>"><?php echo $i; ?></span><?php echo $post->getTitle();?></a>
+              </li>
+              <?php endif; ?>
+          <?php $i++; ?>
+      <?php endforeach; ?>
+  </ul>
+</div>
+
+
+
+

@@ -1,0 +1,151 @@
+/* view style {{{ */
+.new-wrapper {
+	width: 800px;
+	margin: 0 auto;
+}
+.new-block-top {
+	height: 33px;
+	line-height: 33px;
+	color: #ffffff;
+}
+.pzbz-list li {
+	width: 226px;
+}
+.pzbz-list li.pzbz-arrow {
+	width: 30px;
+}
+.pzbz-arrow {
+	padding-top: 111px;
+	background: url('../images/icon.png') no-repeat -61px 38px;
+}
+.pzbz-arrow-rt {
+	background-position: -12px 38px;
+}
+.pin-hong-info .rt {
+	width: 395px;
+	height: 417px;
+	padding-left: 55px;
+	background: url('../images/pin-hong-info.png') no-repeat;
+}
+.pin-hong-info .rt ul {
+	padding: 30px 30px 0 0;
+}
+.pin-hong-info .rt ul li {
+	line-height: 22px;
+}
+.pin-hong-name {
+	line-height: 30px;
+	margin-top: 52px;
+}
+.hong-why	.rt {
+	width: 481px;
+	height: 227px;
+	margin-left: 40px;
+	padding-left: 43px;
+	background: url('../images/hong-why-line.png') no-repeat;
+}
+.hong-why	.rt ul li {
+	padding-left: 10px;
+	background: url('../images/point.png') no-repeat 0 13px;
+}
+.wlfh-cont {
+	height: 84px;
+	background: url('../images/wlfh-img-bot.png') no-repeat;
+}
+.wlfh-cont p {
+	padding-left: 308px;
+	padding-top: 48px;
+}
+.wlfh-cont p a {
+	text-decoration: underline;
+}
+.wlfh-cont p a.rt {
+	margin-right: 170px;
+}
+.wlfh-table {
+	width: 800px;
+	height: 175px;
+	background: url('../images/wlfh-img-tab.png') no-repeat;
+}
+.wlfh-table td {
+	text-align: center;
+	vertical-align: middle;
+}
+.problem-cont {
+	width: 800px;
+	height: 377px;
+	background: url('../images/problem-img.png') no-repeat;
+}
+.problem-cont p {
+	padding-left: 472px;
+	padding-top: 149px;
+}
+.buy-now-btn-row {
+	margin-top: 55px;
+}
+.buy-now-btn-row input {
+	width: 223px;
+	height: 118px;
+	border: 0;
+	cursor: pointer;
+	background: url('../images/buy-now-bg.png') no-repeat;
+}
+.zbbb-cont {
+	width: 800px;
+	height: 679px;
+	background: url('../images/hong-icon.png') no-repeat;
+}
+.zbbb-cont form {
+	height:  18px;
+	padding-top: 550px;
+}
+.zbbb-cont-btn {
+	width: 54px;
+	height: 18px;
+	border: 0;
+	margin: 3px 34px 0 0;
+	background: url('../images/select-btn-bg.png') no-repeat;
+}
+.zbbb-cont-text {
+	height: 14px;
+	width: 125px;
+	font-size: 10px;
+	border: 0;
+}
+.jiu-zhuang .rt {
+	width: 360px;
+	background: url('../images/jiu-zhuang-line.png') no-repeat 0 10px;
+}
+.jiu-zhuang-name {
+	display: inline;
+}
+.jiu-zhuang .rt p {
+	line-height: 20px;
+}
+.pjzs-cont {
+	border: #b2b2b2 1px solid;
+}
+.pjzs-cont table {
+	margin-top: 25px;
+	border: #acacac 2px solid;
+}
+.pjzs-cont table td {
+	border: #acacac 2px solid;
+	line-height: 30px;
+	background: #ffffff;
+	font-size: 14px;
+}
+.xbynl-top {
+	height: 50px;
+	padding-top: 5px;
+}
+.xbynl-top .lf {
+	margin-left: 18px;
+	height: 45px;
+}
+.xbynl-top .rt {
+	width: 400px;
+	padding-right: 5px;
+	line-height: 22px;
+}
+/* }}} */

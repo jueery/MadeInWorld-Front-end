@@ -1,0 +1,39 @@
+
+<?php if(count($this->getLayerAttributes())!=0): ?>
+<div class="ny_fl">
+<div class="rmfl_title">
+<img alt="" src="<?php echo $this->getSkinUrl('images/rmfl_title.gif')?>" /></div>                       
+<dl id="narrow-by-list">       
+  <?php 
+    $layerattributes = array ( 'wine_types' => '酒类型','guojia' => '国家','grape' => '葡萄种类',    'changhe' => '建议场合', 'renqun' => '适合人群','price_range' => '价格区间' );
+  ?>            
+  <?php foreach($layerattributes as $key=>$value):?>                                                                            
+  <div class="fl_line">
+  <dt class="even">
+    <?php echo $value ?>    
+  </dt>                    
+  <dd class="even">  
+    <ol> 
+      <li <?php if($this->isActive($key)){?>class="cur"<?php }?>>  
+          <a href="<?php echo $this->getAllUrl($key);?>"><span>全部</span></a> 
+      </li>    
+      <?php $i = 0;?>      
+      <?php foreach($this->getAttributeOptions($key) as $option):?>   
+            <?php 
+      $i++;
+      if($i>13){
+        break;
+      }
+      ?> 
+      <li <?php if($this->isActive($key,$option['value'])){?>class="cur"<?php }?>>    
+          <?php //echo $this->isActive('tanziguige',$option['value'])?>                
+          <a href="<?php echo $this->getLayerUrl($key,$option['value']);?>"><span><?php echo $option['label']?></span></a>       
+      </li>    
+      <?php endforeach; ?>
+    </ol>
+  </dd>
+  </div> 
+  <?php endforeach; ?>                                                                                                                                                                           
+</dl>
+</div>
+<?php endif; ?>

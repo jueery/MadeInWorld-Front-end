@@ -1,0 +1,64 @@
+                                   
+<div class="ysbj_left">
+  <div class="ysbj_content"><h1>
+      <span>养生保健
+      </span>
+      <img src="<?php echo $this->getUrl().'media/heallth_title.gif';?>" alt="" /></h1>
+    <div class="ys_con">
+       <?php if ($posts = $this->getCatPosts(10)): ?>  
+      <div class="ys_left">
+        <div class="title"><h1>红酒保健</h1><h4>
+            </h4>
+        </div>
+        <img src="<?php echo $this->getUrl().'media/bjys_pic1.gif';?>" alt="" /> 
+        <p>红酒+保健=长寿
+        </p>
+        <ul>
+                          <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+
+     if ($i > 2){
+         break;
+     } ?> 
+          <li> 
+          <a href="<?php echo $post->getAddress(); ?>"><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?> </a> 
+          </li>
+          <?php endforeach; ?>
+ 
+        </ul>
+      </div>
+      <?php endif; ?>
+      <div class="ys_right">
+        <div class="title"><h1>酒与疾病</h1><h4>
+            </h4>
+        </div>
+        <?php if ($posts = $this->getCatPosts(19)): ?>  
+                                   <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+
+     if ($i > 2){
+         break;
+     } ?> 
+        <ul>
+          <li> 
+          <img src="<?php echo $this->getUrl().'media/bjys_pic'.($i+1).'.gif';?>" alt="" /> 
+          </li>
+          <li class="desc">
+            <h6><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?>
+            </h6>
+            <p><?php echo mb_substr($post->getPostContent(), 0, 44, 'utf-8'); ?>&hellip;&hellip;
+              <a href="<?php echo $post->getAddress(); ?>">[详细]</a>
+            </p>
+          </li>
+        </ul>
+        <?php endforeach; ?>
+        
+
+          <?php endif; ?>
+      </div>
+      
+    </div>
+  </div>
+</div>

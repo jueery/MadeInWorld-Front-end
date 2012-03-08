@@ -1,0 +1,46 @@
+<?php if ($posts = $this->getCatPosts(14)): ?>   
+<div class="wine_content"><h1><span>红酒艺术</span>
+    <img src="<?php echo $this->getUrl().'media/wineArt_title.gif';?>" alt="" /></h1>
+  <div class="w_content">
+    <div class="w_top">
+      <ul>
+        <li>
+        <img src="<?php echo $this->getUrl().'media/zx_pic6.gif';?>" alt="" />
+        </li>
+            <?php $i=0; foreach ($posts as $post): ?>
+         <?php 
+     $i++; 
+     if ($i > 1){
+         break;
+     } ?> 
+        <li class="desc"><a href="<?php echo $post->getAddress(); ?>"><h5><?php echo mb_substr($post->getTitle(), 0, 10, 'utf-8'); ?></h5></a>
+          <p><?php echo mb_substr($post->getPostContent(), 0, 48, 'utf-8'); ?>&hellip;&hellip;
+          </p>
+        </li>
+       <?php endforeach; ?> 
+      </ul>
+    </div>
+    <div class="w_bottom">
+      <ul>
+      <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+          if ($i <= 1){
+         continue;;
+     }
+     if ($i > 5){
+         break;
+     } ?> 
+        <li>
+        <span class="author">
+          <a href="<?php echo $post->getAddress(); ?>" target="_blank"><?php echo mb_substr($post->getCreatedTime(),0,10,'utf-8'); ?></a>
+        </span>
+        <a href="<?php echo $post->getAddress(); ?>" target="_blank"><?php echo mb_substr($post->getTitle(), 0, 16, 'utf-8'); ?> </a>
+        </li>
+        <?php endforeach; ?>
+       
+      </ul>
+    </div>
+  </div>
+</div>
+<?php endif; ?>

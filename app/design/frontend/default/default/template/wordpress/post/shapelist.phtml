@@ -1,0 +1,29 @@
+<?php if ($posts = $this->wordpresshomelist()): ?> 
+
+<div class="Romantic_content">
+<h1><span>美容塑身</span> <img src="<?php echo $this->getUrl().'media/mrss_title.gif';?>" alt="" /></h1>
+<div class="R_content">
+<ul>
+<li><img src="<?php echo $this->getUrl().'media/mrss_pic1.gif';?>" alt="" /></li>
+</ul>
+<div class="R_bottom">
+<ul>
+ <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+
+     if ($i > 4){
+         break;
+     } ?> 
+<li> 
+<span class="author"> 
+<a href="<?php echo $post->getParmalink(); ?>/" target="_blank"><span class="date"><?php echo $post->getPostDate(); ?></span></a>
+ </span> <a href="<?php echo $post->getParmalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
+  <?php endforeach; ?>
+
+</ul>
+</div>
+</div>
+</div>
+
+<?php endif; ?>

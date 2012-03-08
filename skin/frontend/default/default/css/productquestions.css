@@ -1,0 +1,112 @@
+.productquestions-container{
+	list-style-type:none;
+	width:793px;overflow:hidden;
+	padding:0px;
+	margin:0;
+    text-align:left;
+}
+.productquestions-container h2 {
+	border-bottom:2px solid #880b0b;
+	font-size:14px;
+	font-weight:bold;
+	margin:20px 0 15px;
+	padding:0;
+}
+.productquestions-container .pager {
+	background:url("../images/aw_productquestions/bkg_toolbar.gif") repeat-x scroll 0 100% #FFFFFF;
+	border-top:1px solid #E2E2E2;
+	font-size:11px;
+	padding:4px 8px;
+	text-align:left;
+	height:19px;
+}
+.productquestions-container .pager .amount {
+	float:left;
+	margin:0;
+}
+.productquestions-container .pager select {
+	font-size:11px;
+}
+.productquestions-container .pager .limiter {
+	float:right;
+}
+.productquestions-container .pager .limiter img {
+	margin-left:5px;
+	vertical-align:middle;
+}
+.productquestions-container li.record {
+	margin-top:10px;
+}
+.productquestions-container li.record ul{
+	padding:10px;
+}
+.productquestions-container li.record ul li{
+	padding:5px;
+}
+.productquestions-container li.record ul li.question{
+	background:url("../images/aw_productquestions/question.jpg") no-repeat scroll left 2px;padding-left:30px; line-height:18px;
+}
+.productquestions-container li.record ul li.reply{
+	background:url("../images/aw_productquestions/hf_bg.jpg") no-repeat scroll left 5px;padding-left:30px;color:#880b0b;height:42px;line-height: 22px;}
+.productquestions-container li.record ul li.reply em{font-style:normal
+}
+.productquestions-container li.record ul li.helpfulness{
+	background-color:#F1ECDB;
+	text-align: right;
+	margin-bottom: 4px;
+}
+#question_author_name_field,#question_author_email_field{width:300px;height:19px;line-height:19px;}
+#question_text_field{width:700px;}
+.productquestions-container p {
+	margin:20px;
+}
+.productquestions-container .form-field {
+	margin: 0 0 8px;
+}
+.productquestions-container label {
+	color: #666666;
+  float: left;
+  font-weight: bold;
+  margin-right: 8px;
+  width: 75px;
+}
+.productquestions-container .pager label {
+	font-weight:normal;
+	color:inherit;
+}
+.productquestions-container label.required em {
+	color:#EB340A;
+	font-style:normal;
+	margin-left:3px;
+}
+.productquestions-container input {
+	margin-right:5px;
+}
+.productquestions-container .button-set {
+	clear:both;
+	margin:15px 0 0;
+	padding:8px 0 0;
+	text-align:right;
+	overflow:hidden
+}
+.pager:after {
+	display:block;
+	content:".";
+	clear:both;
+	font-size:0;
+	line-height:0;
+	height:0;
+	overflow:hidden;
+	zoom:1;
+}
+.productquestions-container li.record ul li span.r_details{float:right;margin-left:50px;}
+.productquestions-container li{line-height:30px;height:102px;overflow:hidden}
+.productquestions-container li li{height:auto}
+button.tj_btn{background:url("../images/aw_productquestions/tj_btn.jpg") no-repeat scroll left center;width:71px;height:33px;line-height:33px;text-indent:-10000px;display:inline-block}
+button.tj_btn span,button.tj_btn span span{display:inline-block;width:71px;height:33px;line-height:33px;background:none}
+.productquestions-container ul li.record.item_3,.productquestions-container ul li.record.item_7,.productquestions-container ul li.record.item_11{background:url("../images/aw_productquestions/even_bg.jpg") no-repeat scroll left center !important;_background:none;height:102px;overflow:hidden}
+.productquestions-container ul li.record.item_2,.productquestions-container ul li.record.item_4,.productquestions-container ul li.record.item_6{background:none !important;_background:url("../images/aw_productquestions/even_bg.jpg") no-repeat scroll left center;height:102px;overflow:hidden}
+
+#productquestions-form .form-field.first{margin-bottom:25px;} 
+#productquestions-form .form-field input{border:0 none}
+#productquestions-form .form-field input#question_author_name_field,#productquestions-form .form-field input#question_author_email_field{border:1px solid #DDDDDD}

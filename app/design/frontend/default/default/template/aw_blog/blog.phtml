@@ -1,0 +1,25 @@
+<?php $posts = $this->getPosts(); ?>
+<div class="col-main left">
+<ul class="blog_layout">
+    <?php $i = 0; foreach ($posts as $post): ?>
+        <?php if($i%5 == 0): ?>
+          <li>
+              <ul>
+        <?php endif; ?>
+            <li>
+                <span><?php echo $post->getCreatedTime(); ?></span>
+                <a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle();?></a>
+            </li>
+        <?php if($i%5 == 4): ?>
+            </ul>
+          </li>
+        <?php endif; ?>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+</ul>
+<?php $this->getPages(); ?>
+</div>
+<div class="col-main right">
+    <?php echo $this->getChildHtml('left.cat1') ?>
+    <?php echo $this->getChildHtml('left.cat2') ?>
+</div>
