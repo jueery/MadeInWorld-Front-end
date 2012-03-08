@@ -8285,8 +8285,7 @@ div.checkoutcontainer div.input-postcode .input-text {
 }
 .w_top ul, .R_top ul {
     clear: both;
-    height: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     overflow: hidden;
 }
 .w_top ul li img, .R_top ul li img {
@@ -8472,7 +8471,7 @@ div.checkoutcontainer div.input-postcode .input-text {
     text-align: center;
 }
 .miaoshu p {
-    line-height: 22px;
+    line-height: 21px;
     text-indent: 22px;
 }
 .newhot_bottom ul {
