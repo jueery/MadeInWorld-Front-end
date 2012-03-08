@@ -1,9 +1,11 @@
  <?php if ($posts = $this->wordpresshomelist()): ?>                               
 <div class="ysbj_right">
-  <div class="Romantic_content"><h1>
-      <span>红酒浪漫
-      </span> 
-      <img src="<?php echo $this->getUrl().'media/Romantic_title.gif';?>" alt="" /></h1>
+  <div class="Romantic_content"><h2>
+      <a href="<?php echo $this->getUrl(); ?>news/hongjiu-meishi/"><span>红酒美食
+      </span></a> 
+      <img src="<?php echo $this->getUrl().'media/Romantic_title.gif';?>" alt="" />
+      <a class="more" rel="nofollow" href="<?php echo $this->getUrl(); ?>news/hongjiu-meishi/">更多>></a>
+      </h2>
     <div class="R_content">
   <?php $i=0; foreach ($posts as $post): ?>
   <?php $i++; if ($i > 1){break;} ?> 
@@ -28,7 +30,7 @@
         </ul>
       </div>
      <?php endforeach; ?> 
-      <div class="R_bottom">
+      <div class="R_bottom rom1">
         <ul>
       <?php $i=0; foreach ($posts as $post): ?>
       <?php $i++; if ($i <= 1){continue;}

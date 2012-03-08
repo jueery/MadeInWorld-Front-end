@@ -69,20 +69,17 @@
 .sidebar .block .block-title {
 	background: none
 }
-
-.sidebar .block-blog-categories .block-title{
- background: url("../images/fl_title.gif") no-repeat scroll left top transparent;
-    border-bottom: medium none;
-    font-size: 12px;
-    font-weight: bold;
-    height: 34px;
-    line-height: 28px;
-    padding-left: 12px;
-    text-indent: -10000px;
-    width: 182px;
+.sidebar .block-blog-categories .block-title {
+	background: url("../images/fl_title.gif") no-repeat scroll left top transparent;
+	border-bottom: medium none;
+	font-size: 12px;
+	font-weight: bold;
+	height: 34px;
+	line-height: 28px;
+	padding-left: 12px;
+	text-indent: -10000px;
+	width: 182px;
 }
-
-
 .block-title span {
 	font-size: 14px;
 	color: #84182f;
@@ -125,13 +122,11 @@ button.button span {
 	line-height: 25px;
 	padding: 10px;
 	margin-top: -1px;
-	display: block;
 	overflow: hidden;
 	z-index: 2;
 	width: 730px;
 	margin-left: -10px;
-	position: absolute !important;
-	*+position: relative;
+	position: relative;
 }
 .gongxiao {
 	text-indent: 2em;
@@ -233,8 +228,8 @@ button.button span {
 	padding: 10px 11px 0;
 }
 .Romantic_content .R_content .R_bottom ul li {
-	background: url("../images/zx_ico2.gif") no-repeat scroll left 8px transparent;
-	line-height: 20px;
+	background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
+	line-height: 21px;
 	padding-left: 1em;
 }
 .red_con_right .ysbj_right .Romantic_content .R_content .R_bottom {
@@ -256,17 +251,20 @@ button.button span {
 	font-family: 'arial';
 }
 .ysbj_right .ysbj_right .Romantic_content .R_content {
-	padding: 20px 11px 8px;
+	padding: 20px 11px;
 }
 .ysbj_content .R_top ul {
-	padding-bottom: 2px;
+	padding-bottom: 20px;
 	margin-bottom: 0;
 }
 .fitness_right {
 	overflow: hidden;
 	width: 345px;
 }
-.gd_more{ clear:both; overflow:hidden}
+.gd_more {
+	clear: both;
+	overflow: hidden
+}
 .fitness_right .fitness_right_top span, .fitness_right .fitness_right_down span {
 	background: none repeat scroll 0 0 transparent;
 	color: #84182F;
@@ -277,13 +275,12 @@ button.button span {
 	padding-left: 15px;
 	width: 100px;
 }
-.fitness_right .fitness_right_top .more, .fitness_right .fitness_right_down .more{
- float:right;
- color: #84182F;
- margin-top:0px!important;
- *+margin-top:-28px!important;
+.fitness_right .fitness_right_top .more, .fitness_right .fitness_right_down .more {
+	float: right;
+	color: #84182F;
+	margin-top: 0px!important;
+	*+margin-top: -28px!important;
 }
-
 .fitness_right .fitness_right_top, .fitness_right .fitness_right_down {
 	overflow: hidden;
 	height: 120px;
@@ -601,13 +598,22 @@ button.button span {
 	padding-left: 5px;
 	padding-top: 10px;
 }
-.test_content h2 .more, .ysbj_content h2 .more, .btc_cont_left .more{
-color: #84182F;
-    float: right;
-    padding: 11px 60px;
+.test_content h2 .more, .ysbj_content h2 .more, .btc_cont_left .more {
+	color: #84182F;
+	float: right;
+	padding: 11px 60px;
+	padding-top: 11px
 }
-
-
+.xzzq {
+	color: #84182F;
+	display: block;
+	float: left;
+	font-family: '微软雅黑';
+	font-size: 15px;
+	font-weight: bold;
+	padding-left: 58px;
+	padding-top: 10px;
+}
 /*内容页*/
 #comments .comment-list .by {
 	width: 100px;
@@ -691,11 +697,14 @@ color: #84182F;
 }
 .w_xgwz .wz_contant ul {
 	float: left;
-	padding-right: 75px;
+	padding-right: 60px;
 	padding-top: 10px;
 }
+#w_wrap .jcarousel-skin-tango ul li{background:none;}
 .w_xgwz ul li {
 	line-height: 25px;
+  background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
+    padding-left: 1em;
 }
 .w_xgwz ul li a:hover {
 	color: #84182f;
@@ -737,10 +746,9 @@ color: #84182F;
 	color: #84182f;
 }
 .jcarousel-skin-tango .jcarousel-item-horizontal {
-	margin-left: 25px!important;
-	*+margin-left: 6px!important;
-	margin-right: 25px!important;
-	*+margin-right: 50px!important;
+	text-align: center;
+    width: 180px;
+    overflow: hidden;
 }
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
 	margin-left: 10px;
@@ -854,8 +862,8 @@ color: #84182F;
 	background-position: 0 -99px;
 }
 #w_wrap #wrap {
-	margin-top: 0;
-	width: auto;
+	margin-top: 10px;
+    width: auto;
 }
 .jcarousel-container-horizontal .jcarousel-clip {
 	width: 578px
@@ -867,27 +875,50 @@ color: #84182F;
 .wide {
 	overflow: hidden
 }
-.post-list .pager .pages ol li{
-    border:1px solid #cccccc;
-    margin-right: 4px;
-    height: 22px;
-    line-height: 22px;
-    text-align: center;
-    width: 26px;
+.post-list .pager .pages ol li {
+	border: 1px solid #cccccc;
+	margin-right: 4px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	width: 26px;
 }
-.pager{margin:5px 10px 10px}
-.pager .pages{margin: 0 235px;}
-.pager .amount{display: none;}
+.pager {
+	margin: 5px 10px 10px
+}
+.pager .pages {
+	margin: 0 235px;
+}
+.pager .amount {
+	display: none;
+}
 .post-list .pager .pages ol li.current {
-    background-color:#84182f;
-    height: 22px;
-    line-height: 22px;
-    text-align: center;
-    width: 26px;
-    overflow:hidden ;
-    display:block;
-    border:0 none;
+	background-color: #84182f;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	width: 26px;
+	overflow: hidden;
+	display: block;
+	border: 0 none;
 }
-.pages ol li.current{
-  background:none;
+.pages ol li.current {
+	background: none;
 }
+.redml_left .more, .reml_right .more, .Romantic_content .more, .Romantic_content .more {
+	color: #84182F;
+	float: right;
+	padding: 9px;
+}
+.block-recent-posts .block-content ul li{
+background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
+    padding-left: 1em;
+    margin-left: 10px;
+}
+.hjmr_main .redml_cont ul li h5{
+    color: #84182F;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 0;
+}
+.wz_contant_right ul li, .wz_contant ul li{height:25px; line-height:25px; overflow:hidden}
