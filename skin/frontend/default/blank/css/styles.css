@@ -256,6 +256,7 @@ ul, ol {
 }
 /* 2 Columns Layout */
 .col2-left-layout .col-main {
+  width: 1000px;
 }
 .col2-right-layout .col-main {
     clear: both;
@@ -494,7 +495,7 @@ p.control input.checkbox, p.control input.radio {
     padding-right: 10px;
     position: relative;
     text-align: right;
-    width: 70px;
+    width: 85px;
     z-index: 0;
 }
 .form-list label.required {
@@ -2474,19 +2475,21 @@ tr.summary-details-excluded {
 .alert-stock {
 }
 .price {
-    white-space: nowrap !important;
+  white-space: nowrap !important;
 }
 .price-box {
-    clear: both;
-    overflow: hidden;
+  clear: both;
+  overflow: hidden;
+}
+.lj_right .price-box {
+  padding-top: 5px;
 }
 .price-box .price {
     font-weight: bold;
 }
-.regular-price {
-}
 .regular-price .price {
     font-weight: bold;
+    color: #880b0b;
 }
 .old-price .price-label {
     white-space: nowrap;
@@ -2501,10 +2504,17 @@ tr.summary-details-excluded {
     font-weight: bold;
     white-space: nowrap;
 }
+.my-wishlist .special-price .price-label {
+  font-weight: normal;
+}
 .special-price .price {
     color: #880B0B;
     font-size: 14px;
     font-weight: bold;
+}
+.my-wishlist .special-price .price {
+    color: #880B0B;
+    font-size: 12px;
 }
 .category-products .special-price .price {
     font-size: 12px;
@@ -4493,7 +4503,10 @@ button.btn-update {
     margin-top: 2px;
     width: 111px;
 }
-button.btn-checkout {
+button.btn-update-two {
+    background: url("../images/update_btn2.jpg") no-repeat scroll left top transparent;
+}
+.button.btn-checkout {
     background: url("../images/checkout_btn.gif") no-repeat scroll left top transparent;
     height: 36px !important;
     width: 94px;
@@ -5853,7 +5866,8 @@ ul, li {
     margin-top: 10px;
 }
 .category-products .products-grid li .actions {
-    padding: 0 36px;
+  padding: 0;
+  _padding-left: -5px;
 }
 .Slide {
     height: 278px;
@@ -6995,7 +7009,7 @@ input#TabContainerGTIN_TabPanelGTIN_rblGTIN_0, input#TabContainerGTIN_TabPanelGT
     float: left;
     font-size: 12px;
     overflow: hidden;
-    width: 189px;;
+    width: 195px;;
 }
 .hjzs .shishi {
     float: left;
@@ -7004,16 +7018,20 @@ input#TabContainerGTIN_TabPanelGTIN_rblGTIN_0, input#TabContainerGTIN_TabPanelGT
     float: right;
     line-height: 16px;
     padding-top: 20px;
-    width: 116px;
+    width: 123px;
 }
 .shishi_jieshao {
     float: right;
-    line-height: 20px;
+    line-height: 22px;
     padding-top: 50px;
-    width: 119px;
+    width: 125px;
+}
+.li_juyj .price-box {
+  padding-top: 0px;
 }
 .shishi_jieshao ol {
     height: 80px;
+    line-height: 22px;
 }
 .gm_sc_button dl dt {
     float: left;
@@ -7105,11 +7123,12 @@ input#TabContainerGTIN_TabPanelGTIN_rblGTIN_0, input#TabContainerGTIN_TabPanelGT
 }
 .lj_nxyj .lj_right .hjzs {
     overflow: hidden;
-    padding: 15px 19px;
+    padding: 15px 16px;
 }
 .lj_nxyj .songli .li_juyj .hjzs {
     overflow: hidden;
-    padding: 20px;
+    padding: 20px 18px;
+    width: 193px;
 }
 .meide_price {
     color: #880B0B;
