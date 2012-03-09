@@ -4,10 +4,10 @@
      <?php $i=0; foreach ($posts as $post): ?>
      <?php 
      $i++; 
-     if ($i > 5){
+     if ($i > 6){
          break;
      } ?>    
-<li><a target="_blank" href="<?php echo $post->getAddress(); ?>"> <?php echo mb_substr($post->getTitle(), 0, 20, 'utf-8'); ?> </a></li>
+<li><a href="<?php echo $post->getAddress(); ?>"> <?php echo mb_substr($post->getTitle(), 0, 20, 'utf-8'); ?> </a></li>
       <?php endforeach; ?>
 
 </ul>

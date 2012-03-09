@@ -1688,7 +1688,6 @@ tr.summary-details-excluded {
     border: 0 none;
     float: left;
     overflow: hidden;
-    padding-top: 15px;
     width: 340px;
 }
 #nav li .widget-static-block .chlj .chlj_right {
@@ -4275,8 +4274,8 @@ button.submit_btn span, button.submit_btn span span, .buttons-set button.submit_
 }
 .notice li {
     border-bottom: 1px solid #E0E0E0;
-    height: 23px;
-    line-height: 23px;
+    height: 24px;
+    line-height: 24px;
     overflow: hidden;
     width: 279px;
 }
