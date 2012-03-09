@@ -9,11 +9,15 @@
   <?php endif; ?>
 </li>
 <li class="desc">
-  <a href="<?php echo $post->getPermalink(); ?>/"><h5><?php echo $post->getPostTitle(); ?></h5></a>
-  <?php $description = $this->description($post->getId()); ?>
-  <?php foreach($description->getData() as $descrip): ?>
-  <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?></p>
-  <?php endforeach; ?>
+    <ul>
+        <?php $i=0; foreach ($posts as $post): ?>
+          <?php $i++; if ($i <= 1){continue;}
+          if ($i > 5){ break;} 
+          ?> 
+          <li><a href="<?php echo $post->getPermalink(); ?>/"><h5><?php echo $post->getPostTitle(); ?></h5></a> </li>
+        <?php endforeach; ?>
+        
+     </ul>
 </li>
 <?php endforeach; ?> 
 <?php endif; ?>

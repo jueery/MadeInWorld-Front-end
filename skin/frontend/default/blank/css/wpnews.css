@@ -270,7 +270,7 @@ button.button span {
 	clear: both;
 	overflow: hidden
 }
-.fitness_right .fitness_right_top span, .fitness_right .fitness_right_down span {
+.fitness_right .fitness_right_top span, .fitness_right .fitness_right_down span, .w_pjrm span {
 	background: none repeat scroll 0 0 transparent;
 	color: #84182F;
 	font-size: 14px;
@@ -291,7 +291,15 @@ button.button span {
 	height: 120px;
 }
 .fitness_right .fitness_right_top ul li, .fitness_right .fitness_right_down ul li {
-	float: left
+	display: block;
+    float: left;
+    overflow: hidden;
+  background: url("../images/zx_ico2.gif") no-repeat scroll left 8px transparent;
+}
+.fitness_right .fitness_right_top ul li h5, .fitness_right .fitness_right_down ul li h5{
+  line-height: 20px;
+    padding-left: 10px;
+    width: 150px;  
 }
 .fitness_right .fitness_right_top ul .desc, .fitness_right .fitness_right_down ul .desc {
 	float: right;
@@ -911,7 +919,7 @@ button.button span {
 .pages ol li.current {
 	background: none;
 }
-.redml_left .more, .reml_right .more, .Romantic_content .more, .Romantic_content .more {
+.redml_left .more, .reml_right .more, .Romantic_content .more, .Romantic_content .more, .w_pjrm .more{
 	color: #84182F;
 	float: right;
 	padding: 9px;

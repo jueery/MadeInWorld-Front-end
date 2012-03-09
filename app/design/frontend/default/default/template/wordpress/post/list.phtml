@@ -23,7 +23,7 @@
 					</p>
 					<div class="entry">
 
-						<?php echo $post->getPostExcerpt() ?>
+						   <?php echo Mage::helper('core/string')->cut_str($post->getPostExcerpt(),500) ?>&hellip;&hellip; 
 						<br style="clear:both;"/>
 					</div>
 					<?php if ($this->helper('wordpress/plugin_shareThis')->canDisplayOnPost()): ?>

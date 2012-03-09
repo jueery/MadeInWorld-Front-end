@@ -32,12 +32,16 @@
       <?php endforeach; ?> 
       <div class="R_bottom">
         <ul>
-          <?php $i=0; foreach ($posts as $post): ?>
+        <?php $i=0; foreach ($posts as $post): ?>
           <?php $i++; if ($i <= 1){continue;}
-                                if ($i > 6){break;} ?> 
-          <li> <span class="author"> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><span class="date"><?php echo $post->getPostDate(); ?></span></a> </span> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
-          <?php endforeach; ?>
-          
+          if ($i > 5){ break;} 
+          ?> 
+          <li><a href="<?php echo $post->getPermalink(); ?>/">
+            <h5>
+              <?php echo Mage::helper('core/string')->cut_str($post->getPostTitle(),10) ?>&hellip;
+            </h5></a> </li>
+        <?php endforeach; ?>
+        
         </ul>
       </div>
     </div>
