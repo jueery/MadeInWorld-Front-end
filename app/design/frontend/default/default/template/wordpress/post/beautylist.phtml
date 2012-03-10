@@ -1,41 +1,53 @@
 <?php if ($posts = $this->wordpresshomelist()): ?>
 <?php $i=0; foreach ($posts as $post): ?>
-<?php $i++;if ($i > 1) break; ?>
+         <?php 
+     $i++; 
+     if ($i > 1){
+         break;
+     } ?>
 <div class="redml_img">
-  <?php if ($featuredImage = $post->getFeaturedImage()): ?>
-  <img src="<?php echo $featuredImage->getGuid() ?>" alt=""/>
-  <?php else: ?>
-  <img src="<?php echo $this->getUrl().'media//hjmr_img.gif'; ?>" alt="" />
-  <?php endif; ?>
+<?php if ($featuredImage = $post->getFeaturedImage()): ?>
+								<img src="<?php echo $featuredImage->getGuid() ?>" alt=""/>
+                <?php else: ?>
+                <img src="<?php echo $this->getUrl().'media//hjmr_img.gif'; ?>" alt="" />
+					<?php endif; ?>
 </div>
 <?php endforeach; ?>
 <div class="redml_cont">
-  <ul>
-    <?php $i=0; foreach ($posts as $post): ?>
-    <?php $i++; if ($i > 1) break;?>
-    <!-- #TODO 外置样式抽取出来 -->
-    <li style="background: none;">
-      <a href="<?php echo $post->getPermalink(); ?>/" target="_blank">
-        <!-- #TODO 外置样式抽取出来 -->
-        <h5 style="color: #84182F; font-size: 14px; font-weight: blod; padding: 2px 0;"><?php echo $post->getPostTitle(); ?> </h5>
-      </a>
-      <div class="w_mr"><?php $description = $this->description($post->getId()); ?>
-        <?php foreach($description->getData() as $descrip): ?>
-        <?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>
-        <?php endforeach; ?>
-        <span class="detail"><a href="<?php echo $post->getParmalink(); ?>/">[详细]</a></span></div>
-      <?php endforeach; ?>
-    </li>
 
-    <?php //print_r($posts->getData()); ?>
-    <?php $i=0; foreach ($posts as $post): ?>
-    <?php $i++; if ($i <= 1) continue; ?>
-          <?php if ($i > 6) break; ?> 
-    <li>
-      <span class="author"> 
-        <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><span class="date"><?php echo $post->getPostDate(); ?></span></a>
-      </span> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
-    <?php endforeach; ?>
-  </ul>
+<ul>
+
+<?php $i=0; foreach ($posts as $post): ?>
+         <?php 
+     $i++; 
+     if ($i > 1){
+         break;
+     } ?> 
+<div class="w_mr"><?php $description = $this->description($post->getId()); ?>
+          <?php foreach($description->getData() as $descrip): ?>
+          <?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>
+          <?php endforeach; ?><span class="detail"><a href="<?php echo $post->getParmalink(); ?>/">[详细]</a></span></div>
+<?php endforeach; ?>
+     
+<?php //print_r($posts->getData()); ?>
+ <?php $i=0; foreach ($posts as $post): ?>
+               <?php 
+     $i++; 
+          if ($i <= 1){
+         continue;;
+     }
+     if ($i > 6){
+         break;
+     } ?> 
+<li> 
+<span class="author"> 
+<a href="<?php echo $post->getPermalink(); ?>/" target="_blank"></a> <span class="date"><?php echo $post->getPostDate(); ?></span>
+ </span> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
+<?php endforeach; ?>
+
+</ul>
+
+
 </div> 
+
 <?php endif; ?>

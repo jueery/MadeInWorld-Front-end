@@ -15,7 +15,7 @@
             <a href="<?php echo $post->getPermalink(); ?>/"><h5><?php echo $post->getPostTitle(); ?></h5></a>
             <?php $description = $this->description($post->getId()); ?>
           <?php foreach($description->getData() as $descrip): ?>
-          <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?></p>
+          <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>&hellip;</p>
           <?php endforeach; ?>
             <a class="R_top_detail" href="<?php echo $post->getPermalink(); ?>/">[详细]</a>
           </li>
@@ -30,12 +30,18 @@
         </ul>
       </div>
      <?php endforeach; ?> 
-      <div class="R_bottom rom1">
+      <div class="R_bottom">
         <ul>
       <?php $i=0; foreach ($posts as $post): ?>
       <?php $i++; if ($i <= 1){continue;}
      if ($i > 6){break;} ?> 
-<li> <span class="author"> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><span class="date"><?php echo $post->getPostDate(); ?></span></a> </span> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
+          <li> 
+          <span class="author"> 
+            <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"></a> 
+            <span class="date"><?php echo $post->getPostDate(); ?></span>
+          </span> 
+            <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> 
+          </li>
           <?php endforeach; ?>
          
         </ul>

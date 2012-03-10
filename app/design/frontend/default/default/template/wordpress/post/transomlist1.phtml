@@ -1,0 +1,27 @@
+                       <?php if ($posts = $this->wordpresshomelist()): ?>  
+<?php $i=0; foreach ($posts as $post): ?>
+<?php $i++; if ($i > 1){ break; } ?> 
+<li>
+  <?php if ($featuredImage = $post->getFeaturedImage()): ?>
+  <img src="<?php echo $featuredImage->getGuid(); ?>" alt=""/>
+  <?php else: ?>
+  <img src="<?php echo $this->getUrl().'media/yjjj_img.gif'; ?>" alt="" />
+  <?php endif; ?>
+</li>
+<li class="desc">
+      <ul>
+          <li class="desc">
+            <a class="title" href="<?php echo $post->getPermalink(); ?>/"><?php echo $post->getPostTitle(); ?></a>
+            <?php $description = $this->description($post->getId()); ?> 
+            <?php foreach($description->getData() as $descrip): ?>
+            <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>&hellip;</p>
+            <?php endforeach; ?>
+            <a class="R_top_detail" href="<?php echo $post->getPermalink(); ?>/">[详细]</a>
+          </li>
+          
+        </ul>
+  
+  
+</li>
+<?php endforeach; ?> 
+<?php endif; ?>
