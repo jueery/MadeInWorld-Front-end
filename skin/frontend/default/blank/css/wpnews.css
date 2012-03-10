@@ -11,7 +11,7 @@
 	clear: both;
 	float: left;
 	overflow: hidden;
-	width: 742px;
+	width: 780px;
 }
 .block-content #blog-search-form .blog-search .input-text {
 	margin-top: 4px;
@@ -21,8 +21,9 @@
 	width: 150px;
 }
 .col2-right-layout .col-right {
-	width: 198px
-}
+	width: 196px;
+  float: right; 
+} 
 .block-blog-search .block-content #blog-search-form .blog-search .button span {
 	background: none;
 	text-indent: -10000px;
@@ -108,9 +109,12 @@ button.button span {
 	width: 716px
 }
 .post-list {
-	width: 780px;
-	overflow: hidden
+	width: 778px;
+	overflow: hidden;
+  float: left;
 }
+.col2-right-layout .col-main{width: 780px;display: block;
+    overflow: hidden;}
 .col2-right-layout .post-view .new_contant {
 	border: 1px solid #E5E1E1;
 	background-color: #FAFAFA;
@@ -124,14 +128,14 @@ button.button span {
 	margin-top: -1px;
 	overflow: hidden;
 	z-index: 2;
-	width: 730px;
-	margin-left: -10px;
+	width: 780px;
+	margin-left: -5px;
 	position: relative;
 }
 .gongxiao {
 	text-indent: 2em;
 	line-height: 22px;
-	width: 740px;
+	width: 780px;
 }
 .gongxiao_text {
 }
@@ -152,8 +156,9 @@ button.button span {
 .ys_main .R_content {
 	border: 0 none;
 	border-right: 1px solid #D1D1D1;
-	padding: 30px 12px 10px;
+	padding: 0px 12px 10px;
 	width: 300px;
+  height: 250px;
 }
 .ys_main {
 	border: 1px solid #D1D1D1;
@@ -226,19 +231,15 @@ button.button span {
 }
 .Romantic_content .R_content {
 	padding: 10px 11px 0;
+   height: 230px;
 }
 .Romantic_content .R_content .R_bottom ul li {
-	background: url("../images/zx_ico2.gif") no-repeat scroll left 8px transparent;
+	background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
 	line-height: 21px;
 	padding-left: 1em;
 }
-
-.Romantic_content .R_content .rom1 ul li {
-	line-height: 18px;
-}
-
 .red_con_right .ysbj_right .Romantic_content .R_content .R_bottom {
-	padding-bottom: 3px;
+	padding-bottom: 5px;
 }
 .ysbj_content .R_content .R_top .desc {
 	padding: 0 10px;
@@ -256,10 +257,11 @@ button.button span {
 	font-family: 'arial';
 }
 .ysbj_right .ysbj_right .Romantic_content .R_content {
-	padding: 19px 11px 8px;
+	padding: 20px 11px;
+  height: 240px;
 }
 .ysbj_content .R_top ul {
-	padding-bottom: 5px;
+	padding-bottom: 20px;
 	margin-bottom: 0;
 }
 .fitness_right {
@@ -288,18 +290,17 @@ button.button span {
 }
 .fitness_right .fitness_right_top, .fitness_right .fitness_right_down {
 	overflow: hidden;
-	height: 120px;
 }
 .fitness_right .fitness_right_top ul li, .fitness_right .fitness_right_down ul li {
 	display: block;
-    float: left;
-    overflow: hidden;
-  background: url("../images/zx_ico2.gif") no-repeat scroll left 8px transparent;
+	float: left;
+	overflow: hidden;
+	background: url("../images/zx_ico2.gif") no-repeat scroll left 8px transparent;
 }
-.fitness_right .fitness_right_top ul li h5, .fitness_right .fitness_right_down ul li h5{
-  line-height: 20px;
-    padding-left: 10px;
-    width: 150px;  
+.fitness_right .fitness_right_top ul li h5, .fitness_right .fitness_right_down ul li h5 {
+	line-height: 20px;
+	padding-left: 10px;
+	width: 150px;
 }
 .fitness_right .fitness_right_top ul .desc, .fitness_right .fitness_right_down ul .desc {
 	float: right;
@@ -399,11 +400,11 @@ button.button span {
 }
 .hjmr_main {
 	overflow: hidden;
-	padding: 16px 12px;
+	padding: 21px 12px;
 	border: 1px solid #D1D1D1;
 	clear: both;
 	border-top: 0 none;
-	height: 220px;
+	height: 228px;
 }
 .red_ml .redml_left .redml_cont {
 	overflow: hidden;
@@ -434,12 +435,17 @@ button.button span {
 .red_ml .redml_left .redml_cont .detail a {
 	color: #84182F;
 }
-.R_top .desc .R_top_detail {
+.desc .R_top_detail, .desc .R_top_detail{
 	color: #84182F;
 	float: right;
+  padding-right: 10px;
+}
+.desc .title{
+  color:#84182f;
+  font-weight:bold;
 }
 .red_ml .reml_right .reml_right_top, .red_ml .reml_right .reml_right_top ul, .red_ml .reml_right .reml_right_down, .red_ml .reml_right .reml_right_down ul {
-	overflow: hidden
+	overflow: hidden;
 }
 .red_ml .reml_right ul li {
 	float: left;
@@ -451,25 +457,31 @@ button.button span {
 	width: 214px;
 }
 .red_ml .reml_right .reml_right_top ul .desc, .red_ml .reml_right .reml_right_down ul .desc {
-	padding: 0 0 0 15px;
+	padding: 0 0 0 5px;
 	margin: 0 auto;
 	overflow: hidden;
-	width: 240px;
+	width: 250px;
 }
 .red_ml .reml_right .reml_right_top ul .desc h5, .red_ml .reml_right .reml_right_down ul .desc h5 {
 	background: none repeat scroll 0 0 transparent;
-	color: #84182F;
 	font-size: 12px;
-	font-weight: bold;
-	height: 32px;
-	line-height: 32px;
+	height: 20px;
+	line-height: 20px;
+	width: 200px;
 }
 .w_right .reml_right_top ul, .w_right .reml_right_down ul {
 	margin: 8px auto 0;
-	width: 450px;
+	padding: 0 5px;
+}
+.w_right .reml_right_top .desc ul{
+  margin:0;
+}
+.w_right .reml_right_top .desc ul li p{
+  margin:5px 0 0 0;
 }
 .w_right .reml_right_down ul {
 	margin-bottom: 10px;
+	padding: 0 5px;
 }
 .w_right {
 	border: 1px solid #D1D1D1;
@@ -553,17 +565,17 @@ button.button span {
 	border: 1px solid #D1D1D1;
 	border-top: 0 none;
 	width: 285px;
+  height: 260px;
 }
 .scgs_tp, .w_scgs {
 	width: 261px;
 	margin: 0 auto;
-	padding-top: 15px;
-        padding-bottom: 2px;
+	padding-top: 16px
 }
 .w_scgs li {
 	background: url("../images/zx_ico2.gif") no-repeat scroll left 8px transparent;
 	font-size: 12px;
-	line-height: 24px;
+	line-height: 21px;
 	padding-left: 15px;
 	width: 245px;
 }
@@ -688,7 +700,7 @@ button.button span {
 	display: none
 }
 .newhot .miaoshu, .newhot .newhot_bottom {
-	padding: 0 20px;
+	padding: 0 20px 5px;
 }
 .w_xgwz {
 	padding: 15px;
@@ -714,11 +726,13 @@ button.button span {
 	padding-right: 60px;
 	padding-top: 10px;
 }
-#w_wrap .jcarousel-skin-tango ul li{background:none;}
+#w_wrap .jcarousel-skin-tango ul li {
+	background: none;
+}
 .w_xgwz ul li {
 	line-height: 25px;
-  background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
-    padding-left: 1em;
+	background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
+	padding-left: 1em;
 }
 .w_xgwz ul li a:hover {
 	color: #84182f;
@@ -761,8 +775,8 @@ button.button span {
 }
 .jcarousel-skin-tango .jcarousel-item-horizontal {
 	text-align: center;
-    width: 180px;
-    overflow: hidden;
+	width: 180px;
+	overflow: hidden;
 }
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
 	margin-left: 10px;
@@ -877,7 +891,7 @@ button.button span {
 }
 #w_wrap #wrap {
 	margin-top: 10px;
-    width: auto;
+	width: auto;
 }
 .jcarousel-container-horizontal .jcarousel-clip {
 	width: 578px
@@ -895,21 +909,21 @@ button.button span {
 	height: 22px;
 	line-height: 22px;
 	text-align: center;
-	width: 26px;
+	width: 24px;
 }
 .pager {
-	margin: 5px 10px 10px
+	margin: 5px 10px 10px ;
+  *+width:500px!important;
+  +width:auto!important;  
 }
-.pager .pages {
-	margin: 0 235px;
-}
-.pager .amount {
+
+.pager .amount {                                       
 	display: none;
 }
 .post-list .pager .pages ol li.current {
 	background-color: #84182f;
-	height: 22px;
-	line-height: 22px;
+	height: 24px;
+	line-height: 24px;
 	text-align: center;
 	width: 26px;
 	overflow: hidden;
@@ -919,20 +933,24 @@ button.button span {
 .pages ol li.current {
 	background: none;
 }
-.redml_left .more, .reml_right .more, .Romantic_content .more, .Romantic_content .more, .w_pjrm .more{
+.redml_left .more, .reml_right .more, .Romantic_content .more, .Romantic_content .more, .w_pjrm .more {
 	color: #84182F;
 	float: right;
 	padding: 9px;
 }
-.block-recent-posts .block-content ul li{
-background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
-    padding-left: 1em;
-    margin-left: 10px;
+.block-recent-posts .block-content ul li {
+	background: url("../images/zx_ico2.gif") no-repeat scroll left 12px transparent;
+	padding-left: 1em;
+	margin-left: 10px;
 }
-.hjmr_main .redml_cont ul li h5{
-    color: #84182F;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 2px 0;
+.hjmr_main .redml_cont ul li h5 {
+	color: #84182F;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 2px 0;
 }
-.wz_contant_right ul li, .wz_contant ul li{height:25px; line-height:25px; overflow:hidden}
+.wz_contant_right ul li, .wz_contant ul li {
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden
+}
