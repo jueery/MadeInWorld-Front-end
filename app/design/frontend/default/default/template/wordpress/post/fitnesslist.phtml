@@ -3,7 +3,6 @@
     <div class="R_content">
 <?php $i=0; foreach ($posts as $post): ?>
          <?php $i++; if ($i > 1){ break;} ?>  
-         
       <div class="w_pjrm">
           <a href="<?php echo $this->getUrl(); ?>news/pinjiu-rumen/" ><span>品酒入门</span></a>
           <a class="more" rel="nofollow" href="<?php echo $this->getUrl(); ?>news/pinjiu-rumen/">更多>></a>
@@ -22,7 +21,7 @@
             <a href="<?php echo $post->getPermalink(); ?>/"><h5><?php echo $post->getPostTitle(); ?></h5></a>
             <?php $description = $this->description($post->getId()); ?> 
             <?php foreach($description->getData() as $descrip): ?>
-            <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?></p>
+            <p><?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>&hellip;</p>
             <?php endforeach; ?>
             <a class="R_top_detail" href="<?php echo $post->getPermalink(); ?>/">[详细]</a>
           </li>
@@ -34,9 +33,9 @@
         <ul>
         <?php $i=0; foreach ($posts as $post): ?>
           <?php $i++; if ($i <= 1){continue;}
-          if ($i > 6){ break;} 
+          if ($i > 5){ break;} 
           ?> 
-          <li> <span class="author"> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><span class="date"><?php echo $post->getPostDate(); ?></span></a> </span> <a href="<?php echo $post->getPermalink(); ?>" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
+          <li> <span class="author"> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"></a><span class="date"><?php echo $post->getPostDate(); ?></span> </span> <a href="<?php echo $post->getPermalink(); ?>" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
         <?php endforeach; ?>
         
         </ul>
