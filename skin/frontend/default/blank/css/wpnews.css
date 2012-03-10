@@ -113,7 +113,8 @@ button.button span {
 	overflow: hidden;
   float: left;
 }
-.col2-right-layout .col-main{width: 780px;display: block;
+.col2-right-layout .col-main{
+    display: block;
     overflow: hidden;}
 .col2-right-layout .post-view .new_contant {
 	border: 1px solid #E5E1E1;
@@ -158,14 +159,14 @@ button.button span {
 	border-right: 1px solid #D1D1D1;
 	padding: 0px 12px 10px;
 	width: 300px;
-  height: 250px;
+  height: 240px;
 }
 .ys_main {
 	border: 1px solid #D1D1D1;
 	border-top: 0 none;
-	clear: both;
+	clear: both;n
 	overflow: hidden;
-	height: 260px;
+	height: 250px;
 }
 .wenhua_main {
 	border: 1px solid #D1D1D1;
@@ -258,10 +259,9 @@ button.button span {
 }
 .ysbj_right .ysbj_right .Romantic_content .R_content {
 	padding: 20px 11px;
-  height: 240px;
+  height: 230px;
 }
 .ysbj_content .R_top ul {
-	padding-bottom: 20px;
 	margin-bottom: 0;
 }
 .fitness_right {
@@ -400,7 +400,7 @@ button.button span {
 }
 .hjmr_main {
 	overflow: hidden;
-	padding: 21px 12px;
+	padding: 18px 12px;
 	border: 1px solid #D1D1D1;
 	clear: both;
 	border-top: 0 none;
@@ -590,7 +590,7 @@ button.button span {
 	overflow: hidden
 }
 .ysbj .ysbj_left, .ysbj .ysbj_right {
-	height: 316px;
+	height: 306px;
 }
 .ad_right, .tast_right, .ad_left, .tast_left {
 	height: 330px;

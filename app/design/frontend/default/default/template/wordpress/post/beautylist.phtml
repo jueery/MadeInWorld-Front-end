@@ -1,51 +1,52 @@
 <?php if ($posts = $this->wordpresshomelist()): ?>
 <?php $i=0; foreach ($posts as $post): ?>
-         <?php 
-     $i++; 
-     if ($i > 1){
-         break;
-     } ?>
+<?php 
+   $i++; 
+   if ($i > 1){
+break;
+} ?>
 <div class="redml_img">
-<?php if ($featuredImage = $post->getFeaturedImage()): ?>
-								<img src="<?php echo $featuredImage->getGuid() ?>" alt=""/>
-                <?php else: ?>
-                <img src="<?php echo $this->getUrl().'media//hjmr_img.gif'; ?>" alt="" />
-					<?php endif; ?>
+  <?php if ($featuredImage = $post->getFeaturedImage()): ?>
+  <img src="<?php echo $featuredImage->getGuid() ?>" alt=""/>
+  <?php else: ?>
+  <img src="<?php echo $this->getUrl().'media//hjmr_img.gif'; ?>" alt="" />
+  <?php endif; ?>
 </div>
 <?php endforeach; ?>
 <div class="redml_cont">
 
-<ul>
+  <ul>
+    <li class="desc" style="background: none;">
+      <?php $i=0; foreach ($posts as $post): ?>
+      <?php 
+         $i++; 
+         if ($i > 1){
+      break;
+      } ?> 
+      <a href="<?php echo $post->getPermalink(); ?>/"><h5><?php echo $post->getPostTitle(); ?></h5></a>
+      <div class="w_mr"><?php $description = $this->description($post->getId()); ?>
+        <?php foreach($description->getData() as $descrip): ?>
+        <?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>
+        <?php endforeach; ?><span class="detail"><a href="<?php echo $post->getParmalink(); ?>/">[详细]</a></span></div>
+      <?php endforeach; ?>
+    </li>
+    <?php //print_r($posts->getData()); ?>
+    <?php $i=0; foreach ($posts as $post): ?>
+    <?php 
+       $i++; 
+       if ($i <= 1){
+                 continue;;
+                 }
+                 if ($i > 6){
+       break;
+       } ?> 
+    <li> 
+      <span class="author"> 
+        <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"></a> <span class="date"><?php echo $post->getPostDate(); ?></span>
+      </span> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
+    <?php endforeach; ?>
 
-<?php $i=0; foreach ($posts as $post): ?>
-         <?php 
-     $i++; 
-     if ($i > 1){
-         break;
-     } ?> 
-<div class="w_mr"><?php $description = $this->description($post->getId()); ?>
-          <?php foreach($description->getData() as $descrip): ?>
-          <?php echo Mage::helper('core/string')->cut_str($descrip['meta_value'],60); ?>
-          <?php endforeach; ?><span class="detail"><a href="<?php echo $post->getParmalink(); ?>/">[详细]</a></span></div>
-<?php endforeach; ?>
-     
-<?php //print_r($posts->getData()); ?>
- <?php $i=0; foreach ($posts as $post): ?>
-               <?php 
-     $i++; 
-          if ($i <= 1){
-         continue;;
-     }
-     if ($i > 6){
-         break;
-     } ?> 
-<li> 
-<span class="author"> 
-<a href="<?php echo $post->getPermalink(); ?>/" target="_blank"></a> <span class="date"><?php echo $post->getPostDate(); ?></span>
- </span> <a href="<?php echo $post->getPermalink(); ?>/" target="_blank"><?php echo $post->getPostTitle(); ?> </a> </li>
-<?php endforeach; ?>
-
-</ul>
+  </ul>
 
 
 </div> 
