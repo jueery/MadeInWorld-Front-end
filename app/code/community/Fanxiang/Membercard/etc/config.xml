@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>    
+  <modules>
+    <Fanxiang_Membercard>
+      <version>0.1.0</version>
+    </Fanxiang_Membercard>
+  </modules>
+  <global>
+    <blocks>
+      <membercard>
+        <class>Fanxiang_Membercard_Block</class>
+      </membercard>
+    </blocks>     
+    <helpers>
+      <membercard>
+        <class>Fanxiang_Membercard_Helper</class>
+      </membercard>
+    </helpers>  
+  </global>
+  <frontend>
+    <routers>
+      <membercard>
+        <use>standard</use>
+        <args>
+          <module>Fanxiang_Membercard</module>
+          <frontName>membercard</frontName>
+        </args>
+      </membercard>
+    </routers>
+    <layout>
+      <updates>
+        <membercard>
+          <file>membercard.xml</file>
+        </membercard>
+      </updates>
+    </layout>  
+  </frontend>
+</config>

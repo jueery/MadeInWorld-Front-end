@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+
+-->
+<layout version="0.1.0">
+  <membercard_index_index translate="label">
+    <label>membercard</label>
+    <reference name="head">
+      <action method="addItem"><type>skin_css</type><name>css/flashbox.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
+    </reference>
+    
+    <reference name="content">
+      <block type="core/template" name="membercard_card" template="membercard/card.phtml"/>
+    </reference>
+  </membercard_index_index>
+  
+  <membercard_index_binding translate="label">
+    <label>card_binding</label>
+    <reference name="head">
+      <action method="addItem"><type>skin_css</type><name>css/flashbox.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
+    </reference>
+    
+    <reference name="content">
+      <block type="core/template" name="card_binding" template="membercard/binding.phtml"/>
+    </reference>
+  </membercard_index_binding>
+
+</layout>

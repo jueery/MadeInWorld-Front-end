@@ -1,0 +1,146 @@
+<!-- 完善信息 {{{ -->
+
+<?php
+  /** $setup = new Mage_Eav_Model_Entity_Setup('core_setup');
+   $AttrCode = 'cardnumber';
+   $settings = array (
+      'position' => 1,
+      'required'=> 0
+   );
+$setup->addAttribute('1', $AttrCode, $settings);
+*/?>
+
+
+
+<div class="member-login-02">
+  <div class="clearfix fs14 fwb member-login-02-top">
+    <span class="lf color-292929">
+      <!-- 心诚会员 显示这段 
+           恭喜您，验证成功，您已成为我们的心诚会员!
+           恭喜您，验证成功，您已成为我们的心愿会员!
+    
+        -->
+      <?php echo $this->getMessagesBlock()->getGroupedHtml()?>
+      </span> 
+    <span class="rt">
+      <a class="color-b40014 member-login-02-msg" href="#" title="完善信息">
+        完善信息
+      </a>
+      <a class="color-292929 member-login-02-band" href="#" title="绑定已有账户">
+        绑定已有账户
+      </a>
+    </span>
+  </div> 
+  <!-- 心诚会员 显示这段 
+       <div class="mt30 pl10">
+         请补充以下信息，以便您快速登录美德因我购物商城，享有心诚！如您已有美德因我账号，请先绑定。
+       </div>
+       -->
+  <div class="mt30 pl10">
+    请补充以下信息，以便您快速登录美德因我购物商城，享有心愿会员所有优惠！如您已有美德因我账号，请先绑定。
+  </div>
+  <form action="<?php echo $this->getUrl('membercard/index/newuser')?>" method="post" accept-charset="utf-8">
+    <table width="100%">
+      <tr>
+        <td width="9%">
+          电子邮件：
+        </td> 
+        <td>
+          <input class="member-login-02-text" type="text"  name="username" />
+          <span class="color-787878 ml20">请填写有效的Email地址。</span>
+        </td> 
+      </tr> 
+      <tr>
+        <td>
+          登录密码：
+        </td> 
+        <td>
+          <input class="member-login-02-text" type="password" name="password" />
+          <span class="color-787878 ml20">密码请设为6-30位字符，请正确填写。</span>
+        </td> 
+      </tr> 
+      <tr>
+        <td>
+          确认密码：
+        </td> 
+        <td>
+          <input class="member-login-02-text" type="password" name="repassword"/>
+          <span class="color-787878 ml20">两次密码必须一致。</span>
+        </td> 
+      </tr> 
+      <tr>
+        <td></td> 
+        <td>
+          <input type="checkbox" class="lf member-login-02-box" />
+          <span class="lf ml10">
+            我已阅读并同意
+            <a href="#" title="" class="color-b40014">
+              《美德因我用户服务协议》 
+            </a>
+          </span>
+        </td> 
+      </tr> 
+      <tr>
+        <td><input type="hidden" name="cardNumber" value="<?php echo $this->getRequest()->getParam('cardNumber')?>" /></td> 
+        <td>
+          <button class="button tjzc_btn" title="提交注册" type="submit"></button>
+        </td> 
+      </tr> 
+    </table>
+  </form>
+</div> 
+<!-- }}} -->
+<!-- 绑定已有账户 {{{ -->
+<div class="member-login-02 member-login-03">
+  <div class="clearfix fs14 fwb member-login-02-top">
+    <span class="lf color-292929">
+      <!-- 心诚会员 显示这段 
+           恭喜您，验证成功，您已成为我们的心诚会员!
+        -->
+      恭喜您，验证成功，您已成为我们的心愿会员!
+    </span> 
+    <span class="rt">
+      <a class="color-292929 member-login-02-msg" href="#" title="完善信息">
+        完善信息
+      </a>
+      <a class="color-b40014 member-login-02-band" href="#" title="绑定已有账户">
+        绑定已有账户
+      </a>
+    </span>
+  </div> 
+  <!-- 心诚会员 显示这段 
+       <div class="mt30 pl10">
+         请补充以下信息，以便您快速登录美德因我购物商城，享有心诚！如您已有美德因我账号，请先绑定。
+       </div>
+       -->
+  <div class="mt30 pl10">
+    请补充以下信息，以便您快速登录美德因我购物商城，享有心愿会员所有优惠！如您已有美德因我账号，请先绑定。
+  </div>
+  <form action="<?php echo $this->getUrl('membercard/index/olduser')?>" method="get" accept-charset="utf-8">
+    <table width="100%">
+      <tr>
+        <td width="10%">
+          电子邮件：
+        </td> 
+        <td>
+          <input class="member-login-02-text" type="text"  name="username" />
+        </td> 
+      </tr> 
+      <tr>
+        <td>
+          登录密码：
+        </td> 
+        <td>
+          <input class="member-login-02-text" type="password" name="password"/>
+        </td> 
+      </tr> 
+      <tr>
+        <td><input type="hidden" name="cardNumber" value="<?php echo $this->getRequest()->getParam('cardNumber')?>" /></td> 
+        <td>
+          <button class="button bd_btn" title="提交注册" type="submit"></button>
+        </td> 
+      </tr> 
+    </table>
+  </form>
+</div> 
+<!-- }}} -->

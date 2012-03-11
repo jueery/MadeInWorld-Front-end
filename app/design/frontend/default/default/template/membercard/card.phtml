@@ -1,0 +1,41 @@
+<!--  会员卡用户登录 {{{ -->
+<div class="member-login-01">
+  <form action="<?php echo $this->getUrl('membercard/index/checkcard')?>" method="post" accept-charset="utf-8">
+         
+      
+    <p class="color-880b0b fs16 fwb mb20"><?php echo $this->getMessagesBlock()->getGroupedHtml()?></p>
+        
+    <p class="color-880b0b fs16 fwb mb20">欢迎来到美德因我购物商场，请输入会员卡号</p>
+    <table width="100%">
+      <tr>
+        <td width="11%">
+          卡号输入： 
+        </td> 
+        <td>
+          <input class="member-login-01-text" type="text" name="cardNumber" />
+          <span class="color-880b0b fwb">*</span>
+        </td> 
+      </tr> 
+      <tr>
+        <td></td> 
+        <td class="pt20">
+          <button class="button khyz_btn" title="卡号验证" type="submit"></button>
+        </td> 
+      </tr> 
+      <!-- 卡号错误显示这段 
+           <tr>
+             <td></td> 
+             <td class="pt20 color-787878 lh22">
+               <p>
+                 如有任何问题，可联系我们客服人员帮您解决。
+               </p> 
+               <p>
+                 服务热线：400-601-5199
+               </p>
+             </td> 
+           </tr> 
+           -->
+    </table>
+  </form>
+</div>
+<!-- }}} -->
