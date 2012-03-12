@@ -35,48 +35,4 @@ class Fanxiang_Membercard_IndexController extends Mage_Core_Controller_Front_Act
       }
     }
   }
-
-  public function newuserAction(){
-    $request = $this->getRequest();
-    if($request->isPost()){
-      $cardNumber = $request->getParam('cardNumber');
-      $username = $request->getParam('username');
-      $password = $request->getParam('password');
-      $repassword =$request->getParam('repassword');
-      if($username==""){
-        Mage::getSingleton('customer/session')->addError("请输入用户名!");
-        $this->_redirect('*/*/binding');
-        return;
-      }
-      if($password == ""){
-        Mage::getSingleton('customer/session')->addError("请输入密码!");
-        $this->_redirect('*/*/binding');
-        return;
-      }
-      if($password != $repassword){
-        Mage::getSingleton('customer/session')->addError("两次输入密码不一致!");
-        $this->_redirect('*/*/binding');
-        return;
-      }
-      $emails = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('userName',$username)
-        ->getFirstItem()->load();
-      if($emails->getData('username')){
-        Mage::getSingleton('customer/session')->addError("用户名已被使用!");
-        $this->_redirect('*/*/binding');
-      }
-      
-
-
-    }
-  }
-  
-  public function olduserAction(){
-    $request = $this->getRequest();
-    if($request->isPost()){
-      $cardNumber = $request->getParam('cardNumber');
-      $username = $request->getParam('username');
-      $password = $request->getParam('password');
-
-    }
-  }
 }

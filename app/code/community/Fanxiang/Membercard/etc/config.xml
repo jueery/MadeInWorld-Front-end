@@ -34,5 +34,27 @@
         </membercard>
       </updates>
     </layout>  
+
+    <events>    
+      <customer_login>
+        <observers>
+          <bind_with_membercard>
+            <type>model</type>
+            <class>Fanxiang_Membercard_Helper_Data</class>
+            <method>loginBindcard</method>
+          </bind_with_membercard>
+        </observers>
+      </customer_login>
+      
+      <customer_register>
+        <observers>
+          <register_bind_with_membercard>
+            <type>model</type>
+            <class>Fanxiang_Membercard_Helper_Data</class>
+            <method>registerBindcard</method>
+          </register_bind_with_membercard>
+        </observers>
+      </customer_register>
+    </events>
   </frontend>
 </config>
